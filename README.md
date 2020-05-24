@@ -1,5 +1,5 @@
 # HW-Lab-Project
-Wisarut	  Tiyamanee		      5930473321
+Wisarut	  Tiyamanee		      5930473321 \n
 Worawit 	Jitpakdeebodin 		6030516121
 Waragon 	Manothumsatit 		6030518421
 Pichaya  	Karawawattana 	  6031042121
