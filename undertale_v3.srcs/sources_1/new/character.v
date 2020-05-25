@@ -25,6 +25,7 @@ module character(
 
 	x,
 	y,
+	button,
 
 	character_on,
 	character_out
@@ -38,13 +39,17 @@ module character(
 
 	reg [9:0] address; 
 
-	output reg [7:0] character_out;
+	output reg [7:0] character_out; // wire?
 
 	//set up character size and position
 	reg [7:0] x_corner = 320; //character start position - X-axis
 	reg [7:0] y_corner = 190; //character start position - Y-axis
 	localparam character_width = 34; //character width in weight
 	localparam character_height = 22; //character height in weight
+
+	//input - x,y
+	input wire [9:0] x;
+	input wire [9:0] y;
 
 	//reg for storing loaded data
 	(*ROM_STYLE = "block"*) reg [7:0] CHARACTER [747:0]; // size = 34*22 
@@ -69,6 +74,31 @@ module character(
     	else 
     		character_on <= 0;
     end
+
+    always @(posedge clk) 
+    begin
+    	if (button = 'w') // w - up
+    		begin
+    			y <= y<=90 ? y : 10'd10 // <height
+    		end
+
+    	else if (button = 's') //s -down
+    		begin
+    			y <= y>=290 ? y : 10'd10 // <height
+    		end
+
+    	else if (button = 'a') //a
+    		begin
+    			x <= x<=220 ? x : 10'd10 // <width
+    		end
+
+    	else if (button = 'd') //d
+    		begin
+    			x <= x>=420 ? x : 10'd10 // <width
+    		end
+    	assign
+
+    end 
 
     //assign character_out
     always @(posedge clk)
