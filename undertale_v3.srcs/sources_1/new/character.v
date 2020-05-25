@@ -33,10 +33,9 @@ module character(
 
 	input wire clk;
 	input wire reset;
+	input wire button;
 
-	input wire [9:0] x;
-	input wire [9:0] y;
-
+    output reg [1:0] character_on;
 	reg [9:0] address; 
 
 	output reg [7:0] character_out; // wire?
@@ -75,24 +74,25 @@ module character(
     		character_on <= 0;
     end
 
+// todo: correct value of WASD
     always @(posedge clk) 
     begin
-    	if (button = 'w') // w - up
+    	if (button == 'w') // w - up
     		begin
     			y <= y<=90 ? y : 10'd10 // <height
     		end
 
-    	else if (button = 's') //s -down
+    	else if (button == 's') //s -down
     		begin
     			y <= y>=290 ? y : 10'd10 // <height
     		end
 
-    	else if (button = 'a') //a
+    	else if (button == 'a') //a
     		begin
     			x <= x<=220 ? x : 10'd10 // <width
     		end
 
-    	else if (button = 'd') //d
+    	else if (button == 'd') //d
     		begin
     			x <= x>=420 ? x : 10'd10 // <width
     		end

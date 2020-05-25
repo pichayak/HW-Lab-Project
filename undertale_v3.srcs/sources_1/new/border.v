@@ -20,9 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 module gameBorder (
 	x,
-	y,
+	y
 	
-	rgb
+//	rgb
 	);
 
 	//static val
@@ -36,16 +36,15 @@ module gameBorder (
 
 	input wire [9:0] x, y;
 
-	wire atBottomBorder = (BOTTOM<=y)&&(BOTTOM+THICKNESS>=Y)
-	wire atTopBorder = (TOP>=y)&&(y>=TOP-THICKNESS)
+	wire atBottomBorder = (BOTTOM<=y)&&(BOTTOM+THICKNESS>=y);
+	wire atTopBorder = (TOP>=y)&&(y>=TOP-THICKNESS);
 
-	wire atRightBorder = (RIGHT<=x)&&(RIGHT+THICKNESS>=x)
-	wire atLeftBorder = (LEFT>=x)&&(x>=LEFT-THICKNESS)
+	wire atRightBorder = (RIGHT<=x)&&(RIGHT+THICKNESS>=x);
+	wire atLeftBorder = (LEFT>=x)&&(x>=LEFT-THICKNESS);
 
 	//check inBoundary
-	wire inBoundaryY = (y>TOP)&&(y<BOTTOM) 
-	wire inBoundaryY = (x>LEFT)&&(x<RIGHT)
+	wire inBoundaryY = (y>TOP)&&(y<BOTTOM);
+	wire inBoundaryY = (x>LEFT)&&(x<RIGHT);
 
-	assign rgb = ((inBoundX && (isTop || isBottom)) || (inBoundY && (isLeft || isRight))) ? 15'd3 : 5'd0;
-
+//	assign rgb = ((inBoundX && (isTop || isBottom)) || (inBoundY && (isLeft || isRight))) ? 15'd3 : 5'd0;
 endmodule
