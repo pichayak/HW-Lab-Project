@@ -22,7 +22,7 @@ module Top(
     wire rst = RESET; // Setup Reset button
     
     //state game
-    reg [1:0] state = 0; //1 = attacking, 2 = fighting
+    reg [1:0] state = 0; //1 = attacking, 2 = dodging
 
     // instantiate vga640x480 code
     wire [9:0] x; // pixel x position: 10-bit value: 0-1023 : only need 800
@@ -48,7 +48,10 @@ module Top(
     wire [7:0] sout; // pixel value from Members.mem
     StartSprite StartDisplay (.i_clk(CLK),.i_rst(rst),.xx(x),.yy(y),.aactive(active),
                           .StartSpriteOn(StartSpriteOn),.startout(sout));
-                          
+    
+    // instantiate attacking code    
+    
+               
     // load colour palette
     reg [7:0] palette [0:191]; // 8 bit values from the 192 hex entries in the colour palette
     reg [7:0] COL = 0; // background colour palette value
@@ -61,15 +64,6 @@ module Top(
     
     keyboard keyboard (.clk(CLK),.reset(rst), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
         .ascii_code(ascii_code), .LED_out(LED_out), .Anode_Activate(Anode_Activate));
-    // signal declaration
-
-//	wire scan_code_ready;
-//	wire letter_case;
-    // instantiate keyboard scan code circuit
-//	keyboard kb_unit (.clk(CLK), .reset(RESET), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
-//			 .scan_code(scan_code), .scan_code_ready(scan_code_ready), .letter_case_out(letter_case));
-	// instantiate key-to-ascii code conversion circuit
-//	key2ascii k2a_unit (.letter_case(letter_case), .scan_code(scan_code), .ascii_code(ascii_code));
 
     always @ (*)
     begin

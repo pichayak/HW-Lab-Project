@@ -40,7 +40,7 @@ module StartSprite(
     localparam StartWidth = 228; // Bee width in pixels
     localparam StartHeight = 49; // Bee height in pixels
     
-    // check if xx,yy are within the confines of the Bee character
+    // check if xx,yy are within the confines of the character
     always @ (posedge i_clk)
     begin
         if (aactive)
