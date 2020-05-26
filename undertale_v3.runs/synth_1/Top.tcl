@@ -41,8 +41,12 @@ read_verilog -library xil_defaultlib {
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/GroupnameSprite.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/MembersRom.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/MembersSprite.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/Seven_segment_LED_Display_Controller.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/StartRom.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/StartSprite.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/key2ascii.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/keyboard.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/ps2_rx.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/vga640x480.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/Top.v
 }

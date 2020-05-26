@@ -8,6 +8,10 @@
 module Top(
     input wire CLK, // Onboard clock 100MHz : INPUT Pin W5
     input wire RESET, // Reset button : INPUT Pin U18
+    input wire PS2Data,                    // ps2 data line
+    input wire PS2Clk,                     // ps2 clock line
+    output [0:6] LED_out,                  // Cathodes for 7 segment displays (timed assign)
+    output [3:0] Anode_Activate,            // 7 segment digit selector (timed) 
     output wire HSYNC, // VGA horizontal sync : OUTPUT Pin P19
     output wire VSYNC, // VGA vertical sync : OUTPUT Pin R19
     output reg [3:0] RED, // 4-bit VGA Red : OUTPUT Pin G19, Pin H19, Pin J19, Pin N19
@@ -16,6 +20,9 @@ module Top(
     );
      
     wire rst = RESET; // Setup Reset button
+    
+    //state game
+    reg [1:0] state = 0; //1 = attacking, 2 = fighting
 
     // instantiate vga640x480 code
     wire [9:0] x; // pixel x position: 10-bit value: 0-1023 : only need 800
@@ -48,11 +55,40 @@ module Top(
     initial begin
         $readmemh("pal24bit.mem", palette); // load 192 hex values into "palette"
     end
+    
+    //keyboard setup
+    wire [7:0] ascii_code;
+    
+    keyboard keyboard (.clk(CLK),.reset(rst), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
+        .ascii_code(ascii_code), .LED_out(LED_out), .Anode_Activate(Anode_Activate));
+    // signal declaration
 
+//	wire scan_code_ready;
+//	wire letter_case;
+    // instantiate keyboard scan code circuit
+//	keyboard kb_unit (.clk(CLK), .reset(RESET), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
+//			 .scan_code(scan_code), .scan_code_ready(scan_code_ready), .letter_case_out(letter_case));
+	// instantiate key-to-ascii code conversion circuit
+//	key2ascii k2a_unit (.letter_case(letter_case), .scan_code(scan_code), .ascii_code(ascii_code));
+
+    always @ (*)
+    begin
+        if (ascii_code[7:0] == 8'h20) // type space to change state to 2
+            state = 2'b10;
+        else
+//        if (ascii_code[7:0] == 8'h2A)
+//            state = 1;
+//        else
+        if (ascii_code[7:0] == 8'h61) //type a to change state to 1
+            state = 2'b01;
+        else
+            state = 0;
+    end
+    
     // draw on the active area of the screen
     always @ (posedge CLK)
     begin
-        if (active)
+        if (active && state == 0)
             begin
                 if (GroupnameSpriteOn==1)
                     begin
@@ -80,6 +116,27 @@ module Top(
                         GREEN <= (palette[(COL*3)+1])>>4; // GREEN bits(7:4) from colour palette
                         BLUE <= (palette[(COL*3)+2])>>4; // BLUE bits(7:4) from colour palette
                     end
+            end
+        else
+        if (state == 2'b01)
+            begin
+                RED <= (palette[(dout*3)])>>4; // RED bits(7:4) from colour palette
+                GREEN <= (palette[(dout*3)+1])>>4; // GREEN bits(7:4) from colour palette
+                BLUE <= (palette[(dout*3)+2])>>4; // BLUE bits(7:4) from colour palette
+            end
+        else
+        if (state == 2'b10)
+            begin
+                RED <= (palette[(sout*3)])>>4; // RED bits(7:4) from colour palette
+                GREEN <= (palette[(sout*3)+1])>>4; // GREEN bits(7:4) from colour palette
+                BLUE <= (palette[(sout*3)+2])>>4; // BLUE bits(7:4) from colour palette
+            end
+        else
+        if (state == 2'b11)
+            begin
+                RED <= (palette[(mout*3)])>>4; // RED bits(7:4) from colour palette
+                GREEN <= (palette[(mout*3)+1])>>4; // GREEN bits(7:4) from colour palette
+                BLUE <= (palette[(mout*3)+2])>>4; // BLUE bits(7:4) from colour palette
             end
         else
             begin
