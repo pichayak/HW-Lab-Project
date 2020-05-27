@@ -20,6 +20,11 @@ module Top(
     );
      
     wire rst = RESET; // Setup Reset button
+    //keyboard setup
+    wire [7:0] ascii_code;
+    
+    keyboard keyboard (.clk(CLK),.reset(rst), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
+        .ascii_code(ascii_code), .LED_out(LED_out), .Anode_Activate(Anode_Activate));
     
     //state game
     reg [1:0] state = 0; //1 = attacking, 2 = dodging
@@ -51,6 +56,11 @@ module Top(
     
     // instantiate attacking code    
     
+    // instatiate dodging code
+    wire [1:0] CharacterOn;
+    wire [7:0] CharacterOut;
+    character CharacterDisplay (.clk(CLK), .reset(rst), .x(x), .y(y), 
+        .button(ascii_code), .character_on(CharacterOn), .character_out(CharacterOut));
                
     // load colour palette
     reg [7:0] palette [0:191]; // 8 bit values from the 192 hex entries in the colour palette
@@ -59,30 +69,21 @@ module Top(
         $readmemh("pal24bit.mem", palette); // load 192 hex values into "palette"
     end
     
-    //keyboard setup
-    wire [7:0] ascii_code;
-    
-    keyboard keyboard (.clk(CLK),.reset(rst), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
-        .ascii_code(ascii_code), .LED_out(LED_out), .Anode_Activate(Anode_Activate));
+
 
     always @ (*)
-    begin
+    begin //state 0 = first page
         if (ascii_code[7:0] == 8'h20) // type space to change state to 2
             state = 2'b10;
         else
-//        if (ascii_code[7:0] == 8'h2A)
-//            state = 1;
-//        else
-        if (ascii_code[7:0] == 8'h61) //type a to change state to 1
+        if (ascii_code[7:0] == 8'h0D) //type enter to change state to 1
             state = 2'b01;
-        else
-            state = 0;
     end
     
     // draw on the active area of the screen
     always @ (posedge CLK)
     begin
-        if (active && state == 0)
+        if (active && state == 0) //display group name
             begin
                 if (GroupnameSpriteOn==1)
                     begin
@@ -112,18 +113,18 @@ module Top(
                     end
             end
         else
-        if (state == 2'b01)
+        if (state == 2'b01) // test display
             begin
-                RED <= (palette[(dout*3)])>>4; // RED bits(7:4) from colour palette
-                GREEN <= (palette[(dout*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                BLUE <= (palette[(dout*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                RED <= 50; // RED bits(7:4) from colour palette
+                GREEN <= 205; // GREEN bits(7:4) from colour palette
+                BLUE <= 50; // BLUE bits(7:4) from colour palette
             end
         else
         if (state == 2'b10)
             begin
-                RED <= (palette[(sout*3)])>>4; // RED bits(7:4) from colour palette
-                GREEN <= (palette[(sout*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                BLUE <= (palette[(sout*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                RED <= (palette[(CharacterOut*3)])>>4; // RED bits(7:4) from colour palette
+                GREEN <= (palette[(CharacterOut*3)+1])>>4; // GREEN bits(7:4) from colour palette
+                BLUE <= (palette[(CharacterOut*3)+2])>>4; // BLUE bits(7:4) from colour palette
             end
         else
         if (state == 2'b11)

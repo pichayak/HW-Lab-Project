@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command=".planAhead." Owner="Waragon" Host="PING" Pid="11584">
-    </Process>
-</ProcessHandle>

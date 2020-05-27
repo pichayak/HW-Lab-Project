@@ -35,6 +35,7 @@ read_mem {
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/members.mem
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/group_name3.mem
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/pal24bit.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/character.mem
 }
 read_verilog -library xil_defaultlib {
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/GroupnameRom.v
@@ -44,6 +45,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/Seven_segment_LED_Display_Controller.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/StartRom.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/StartSprite.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/character.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/key2ascii.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/keyboard.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/ps2_rx.v
