@@ -8,6 +8,10 @@
 module Top(
     input wire CLK, // Onboard clock 100MHz : INPUT Pin W5
     input wire RESET, // Reset button : INPUT Pin U18
+    input wire PS2Data,                    // ps2 data line
+    input wire PS2Clk,                     // ps2 clock line
+    output [0:6] LED_out,                  // Cathodes for 7 segment displays (timed assign)
+    output [3:0] Anode_Activate,            // 7 segment digit selector (timed) 
     output wire HSYNC, // VGA horizontal sync : OUTPUT Pin P19
     output wire VSYNC, // VGA vertical sync : OUTPUT Pin R19
     output reg [3:0] RED, // 4-bit VGA Red : OUTPUT Pin G19, Pin H19, Pin J19, Pin N19
@@ -16,6 +20,14 @@ module Top(
     );
      
     wire rst = RESET; // Setup Reset button
+    //keyboard setup
+    wire [7:0] ascii_code;
+    
+    keyboard keyboard (.clk(CLK),.reset(rst), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
+        .ascii_code(ascii_code), .LED_out(LED_out), .Anode_Activate(Anode_Activate));
+    
+    //state game
+    reg [1:0] state = 0; //1 = attacking, 2 = dodging
 
     // instantiate vga640x480 code
     wire [9:0] x; // pixel x position: 10-bit value: 0-1023 : only need 800
@@ -41,18 +53,37 @@ module Top(
     wire [7:0] sout; // pixel value from Members.mem
     StartSprite StartDisplay (.i_clk(CLK),.i_rst(rst),.xx(x),.yy(y),.aactive(active),
                           .StartSpriteOn(StartSpriteOn),.startout(sout));
-                          
+    
+    // instantiate attacking code    
+    
+    // instatiate dodging code
+    wire [1:0] CharacterOn;
+    wire [7:0] CharacterOut;
+    character CharacterDisplay (.clk(CLK), .reset(rst), .x(x), .y(y), 
+        .button(ascii_code), .character_on(CharacterOn), .character_out(CharacterOut));
+               
     // load colour palette
     reg [7:0] palette [0:191]; // 8 bit values from the 192 hex entries in the colour palette
     reg [7:0] COL = 0; // background colour palette value
     initial begin
         $readmemh("pal24bit.mem", palette); // load 192 hex values into "palette"
     end
+    
 
+
+    always @ (*)
+    begin //state 0 = first page
+        if (ascii_code[7:0] == 8'h20) // type space to change state to 2
+            state = 2'b10;
+        else
+        if (ascii_code[7:0] == 8'h0D) //type enter to change state to 1
+            state = 2'b01;
+    end
+    
     // draw on the active area of the screen
     always @ (posedge CLK)
     begin
-        if (active)
+        if (active && state == 0) //display group name
             begin
                 if (GroupnameSpriteOn==1)
                     begin
@@ -80,6 +111,27 @@ module Top(
                         GREEN <= (palette[(COL*3)+1])>>4; // GREEN bits(7:4) from colour palette
                         BLUE <= (palette[(COL*3)+2])>>4; // BLUE bits(7:4) from colour palette
                     end
+            end
+        else
+        if (state == 2'b01) // test display
+            begin
+                RED <= 50; // RED bits(7:4) from colour palette
+                GREEN <= 205; // GREEN bits(7:4) from colour palette
+                BLUE <= 50; // BLUE bits(7:4) from colour palette
+            end
+        else
+        if (state == 2'b10)
+            begin
+                RED <= (palette[(CharacterOut*3)])>>4; // RED bits(7:4) from colour palette
+                GREEN <= (palette[(CharacterOut*3)+1])>>4; // GREEN bits(7:4) from colour palette
+                BLUE <= (palette[(CharacterOut*3)+2])>>4; // BLUE bits(7:4) from colour palette
+            end
+        else
+        if (state == 2'b11)
+            begin
+                RED <= (palette[(mout*3)])>>4; // RED bits(7:4) from colour palette
+                GREEN <= (palette[(mout*3)+1])>>4; // GREEN bits(7:4) from colour palette
+                BLUE <= (palette[(mout*3)+2])>>4; // BLUE bits(7:4) from colour palette
             end
         else
             begin

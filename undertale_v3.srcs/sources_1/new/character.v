@@ -22,34 +22,28 @@
 module character(
 	clk,
 	reset,
-
 	x,
 	y,
 	button,
-
 	character_on,
 	character_out
 	);
 
 	input wire clk;
 	input wire reset;
-
+	input wire [7:0] button;
 	input wire [9:0] x;
 	input wire [9:0] y;
-
-	reg [9:0] address; 
-
+    output reg [1:0] character_on;
 	output reg [7:0] character_out; // wire?
-
+	
+    reg [9:0] address;
 	//set up character size and position
 	reg [7:0] x_corner = 320; //character start position - X-axis
 	reg [7:0] y_corner = 190; //character start position - Y-axis
 	localparam character_width = 34; //character width in weight
 	localparam character_height = 22; //character height in weight
 
-	//input - x,y
-	input wire [9:0] x;
-	input wire [9:0] y;
 
 	//reg for storing loaded data
 	(*ROM_STYLE = "block"*) reg [7:0] CHARACTER [747:0]; // size = 34*22 
@@ -58,6 +52,31 @@ module character(
         $readmemh("character.mem", CHARACTER); //character-data
     end
 
+    
+// todo: correct value of WASD
+    always @(posedge clk) 
+    begin
+        if (x==639 && y==479)
+        begin
+    	if (button == 8'h77) // w - up
+    		begin
+    			y_corner <= y<=90 ? y_corner : y_corner - 10'd1; // <height
+    		end
+        else if (button == 8'h73) //s -down
+    		begin
+    			y_corner <= y>=290 ? y_corner : y_corner + 10'd1; // <height
+    		end
+    	else if (button == 8'h61) //a left
+    		begin
+    			x_corner <= x<=220 ? x_corner : x_corner - 10'd1; // <width
+    		end
+    	else if (button == 8'h64) //d right
+    		begin
+    			x_corner <= x>=420 ? x_corner : x_corner + 10'd1; // <width
+    		end
+    	end
+    end 
+    
     //check whether character x and y position is within the confines of character
     always	@(posedge clk)
     begin
@@ -74,31 +93,6 @@ module character(
     	else 
     		character_on <= 0;
     end
-
-    always @(posedge clk) 
-    begin
-    	if (button = 'w') // w - up
-    		begin
-    			y <= y<=90 ? y : 10'd10 // <height
-    		end
-
-    	else if (button = 's') //s -down
-    		begin
-    			y <= y>=290 ? y : 10'd10 // <height
-    		end
-
-    	else if (button = 'a') //a
-    		begin
-    			x <= x<=220 ? x : 10'd10 // <width
-    		end
-
-    	else if (button = 'd') //d
-    		begin
-    			x <= x>=420 ? x : 10'd10 // <width
-    		end
-    	assign
-
-    end 
 
     //assign character_out
     always @(posedge clk)

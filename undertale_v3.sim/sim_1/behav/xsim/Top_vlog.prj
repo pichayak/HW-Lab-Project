@@ -1,0 +1,19 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../undertale_v3.srcs/sources_1/new/GroupnameRom.v" \
+"../../../../undertale_v3.srcs/sources_1/new/GroupnameSprite.v" \
+"../../../../undertale_v3.srcs/sources_1/new/MembersRom.v" \
+"../../../../undertale_v3.srcs/sources_1/new/MembersSprite.v" \
+"../../../../undertale_v3.srcs/sources_1/new/StartRom.v" \
+"../../../../undertale_v3.srcs/sources_1/new/StartSprite.v" \
+"../../../../undertale_v3.srcs/sources_1/new/key2ascii.v" \
+"../../../../undertale_v3.srcs/sources_1/new/keyboard.v" \
+"../../../../undertale_v3.srcs/sources_1/new/ps2_rx.v" \
+"../../../../undertale_v3.srcs/sources_1/new/vga640x480.v" \
+"../../../../undertale_v3.srcs/sources_1/new/Top.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
