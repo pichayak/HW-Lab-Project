@@ -5,7 +5,7 @@ module gameover_display(
     
     parameter BUS_WIDTH = 12;
     
-    reg [0:0] ROM [31999:0]; // 400*8
+        reg [0:0] ROM [31999:0]; // 400x80
     output wire [BUS_WIDTH-1: 0] rgb;
     
     
