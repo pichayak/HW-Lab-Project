@@ -1,12 +1,12 @@
 module gameover_display(
-        input wire [9:0] x, y;
+        input wire [9:0] x,
+        input wire [9:0] y,
+        output wire [11: 0] gameover_on
     );
     
-    parameter BUS_WIDTH = 12;
-    
+    //parameter BUS_WIDTH = 12;  
     reg [0:0] ROM [31999:0]; // 400*80
-    output wire [BUS_WIDTH-1: 0] gameover_on;
-    
+     
     initial begin
         $readmemh("gameover.mem", ROM);
     end

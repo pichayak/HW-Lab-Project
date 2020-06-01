@@ -70,11 +70,11 @@ set rc [catch {
   set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.cache/wt [current_project]
-  set_property parent.project_path C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.xpr [current_project]
+  set_property webtalk.parent_dir C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.cache/wt [current_project]
+  set_property parent.project_path C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.xpr [current_project]
   set_property ip_output_repo C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.runs/synth_1/Top.dcp
+  add_files -quiet C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.runs/synth_1/Top.dcp
   read_xdc C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v2/undertale_v2.srcs/sources_1/new/basys3.xdc
   link_design -top Top -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
@@ -148,6 +148,24 @@ if {$rc} {
   return -code error $RESULT
 } else {
   end_step route_design
+  unset ACTIVE_STEP 
+}
+
+start_step write_bitstream
+set ACTIVE_STEP write_bitstream
+set rc [catch {
+  create_msg_db write_bitstream.pb
+  catch { write_mem_info -force Top.mmi }
+  write_bitstream -force Top.bit 
+  catch {write_debug_probes -quiet -force Top}
+  catch {file copy -force Top.ltx debug_nets.ltx}
+  close_msg_db -file write_bitstream.pb
+} RESULT]
+if {$rc} {
+  step_failed write_bitstream
+  return -code error $RESULT
+} else {
+  end_step write_bitstream
   unset ACTIVE_STEP 
 }
 

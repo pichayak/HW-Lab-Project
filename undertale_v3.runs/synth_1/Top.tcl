@@ -23,34 +23,56 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.cache/wt [current_project]
-set_property parent.project_path C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.cache/wt [current_project]
+set_property parent.project_path C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
 set_property ip_output_repo c:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_mem {
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/start.mem
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/members.mem
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/group_name3.mem
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/pal24bit.mem
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/character.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/start.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/members.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/group_name3.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/pal24bit.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/character.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/b1.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/running_bar.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/scale.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/teemo.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/b2.mem
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/b3.mem
 }
 read_verilog -library xil_defaultlib {
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/GroupnameRom.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/GroupnameSprite.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/MembersRom.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/MembersSprite.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/Seven_segment_LED_Display_Controller.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/StartRom.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/StartSprite.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/character.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/key2ascii.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/keyboard.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/ps2_rx.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/vga640x480.v
-  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.srcs/sources_1/new/Top.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/CharacterRom.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/GroupnameRom.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/GroupnameSprite.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Hp.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MembersRom.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MembersSprite.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster1.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster2.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster3.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom2.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom3.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/OnCollision.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/PS2Receiver.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Player.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/ScaleRom.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Seven_segment_LED_Display_Controller.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/StartRom.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/StartSprite.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Teemo.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/TeemoRom.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Timer.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/attack.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/debouncer.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/gameBorder.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/runningRom.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/vga640x480.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

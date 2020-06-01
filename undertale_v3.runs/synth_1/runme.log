@@ -9,3 +9,1149 @@
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
 source Top.tcl -notrace
+Command: synth_design -top Top -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10876 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 379.605 ; gain = 99.961
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Top' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:8]
+INFO: [Synth 8-3876] $readmem data file 'pal24bit.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:119]
+INFO: [Synth 8-6157] synthesizing module 'vga640x480' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/vga640x480.v:9]
+	Parameter HSYNCSTART bound to: 16 - type: integer 
+	Parameter HSYNCEND bound to: 112 - type: integer 
+	Parameter HACTIVESTART bound to: 160 - type: integer 
+	Parameter HACTIVEEND bound to: 800 - type: integer 
+	Parameter VSYNCSTART bound to: 10 - type: integer 
+	Parameter VSYNCEND bound to: 12 - type: integer 
+	Parameter VACTIVESTART bound to: 45 - type: integer 
+	Parameter VACTIVEEND bound to: 525 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'vga640x480' (1#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/vga640x480.v:9]
+INFO: [Synth 8-6157] synthesizing module 'keyboard2' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:22]
+INFO: [Synth 8-6157] synthesizing module 'PS2Receiver' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/PS2Receiver.v:22]
+INFO: [Synth 8-6157] synthesizing module 'debouncer' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/debouncer.v:23]
+	Parameter COUNT_MAX bound to: 19 - type: integer 
+	Parameter COUNT_WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'debouncer' (2#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/debouncer.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/PS2Receiver.v:55]
+INFO: [Synth 8-6155] done synthesizing module 'PS2Receiver' (3#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/PS2Receiver.v:22]
+WARNING: [Synth 8-567] referenced signal 'keycodev' should be on the sensitivity list [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:60]
+WARNING: [Synth 8-6014] Unused sequential element start_reg was removed.  [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:74]
+INFO: [Synth 8-6155] done synthesizing module 'keyboard2' (4#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:22]
+INFO: [Synth 8-6157] synthesizing module 'GroupnameSprite' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/GroupnameSprite.v:23]
+	Parameter GroupWidth bound to: 443 - type: integer 
+	Parameter GroupHeight bound to: 47 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'GroupnameRom' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/GroupnameRom.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/GroupnameRom.v:29]
+INFO: [Synth 8-3876] $readmem data file 'group_name3.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/GroupnameRom.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'GroupnameRom' (5#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/GroupnameRom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'GroupnameSprite' (6#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/GroupnameSprite.v:23]
+INFO: [Synth 8-6157] synthesizing module 'MembersSprite' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MembersSprite.v:23]
+	Parameter MembersWidth bound to: 531 - type: integer 
+	Parameter MembersHeight bound to: 125 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'MembersRom' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MembersRom.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MembersRom.v:29]
+INFO: [Synth 8-3876] $readmem data file 'members.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MembersRom.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'MembersRom' (7#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MembersRom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'MembersSprite' (8#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MembersSprite.v:23]
+INFO: [Synth 8-6157] synthesizing module 'StartSprite' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/StartSprite.v:23]
+	Parameter StartWidth bound to: 228 - type: integer 
+	Parameter StartHeight bound to: 49 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'StartRom' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/StartRom.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/StartRom.v:29]
+INFO: [Synth 8-3876] $readmem data file 'start.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/StartRom.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'StartRom' (9#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/StartRom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'StartSprite' (10#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/StartSprite.v:23]
+INFO: [Synth 8-6157] synthesizing module 'attack' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/attack.v:23]
+	Parameter middleWidth bound to: 24 - type: integer 
+	Parameter middleHeight bound to: 14 - type: integer 
+	Parameter runningWidth bound to: 6 - type: integer 
+	Parameter runningHeight bound to: 60 - type: integer 
+	Parameter maxDamage bound to: 70 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'runningRom' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/runningRom.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/runningRom.v:29]
+INFO: [Synth 8-3876] $readmem data file 'running_bar.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/runningRom.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'runningRom' (11#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/runningRom.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ScaleRom' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/ScaleRom.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/ScaleRom.v:29]
+INFO: [Synth 8-3876] $readmem data file 'scale.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/ScaleRom.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'ScaleRom' (12#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/ScaleRom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'attack' (13#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/attack.v:23]
+WARNING: [Synth 8-689] width (2) of port connection 'state' does not match port width (1) of module 'attack' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:76]
+INFO: [Synth 8-6157] synthesizing module 'Seven_segment_LED_Display_Controller' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Seven_segment_LED_Display_Controller.v:23]
+WARNING: [Synth 8-6014] Unused sequential element one_second_counter_reg was removed.  [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Seven_segment_LED_Display_Controller.v:45]
+WARNING: [Synth 8-6014] Unused sequential element displayed_number_reg was removed.  [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Seven_segment_LED_Display_Controller.v:58]
+INFO: [Synth 8-6155] done synthesizing module 'Seven_segment_LED_Display_Controller' (14#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Seven_segment_LED_Display_Controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Teemo' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Teemo.v:23]
+	Parameter StartWidth bound to: 90 - type: integer 
+	Parameter StartHeight bound to: 95 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'TeemoRom' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/TeemoRom.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/TeemoRom.v:29]
+INFO: [Synth 8-3876] $readmem data file 'teemo.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/TeemoRom.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'TeemoRom' (15#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/TeemoRom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Teemo' (16#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Teemo.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Timer' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Timer.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Timer' (17#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Timer.v:23]
+WARNING: [Synth 8-689] width (2) of port connection 'p_alive' does not match port width (1) of module 'Timer' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:90]
+WARNING: [Synth 8-689] width (2) of port connection 'e_alive' does not match port width (1) of module 'Timer' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:90]
+INFO: [Synth 8-6157] synthesizing module 'Player' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Player.v:23]
+	Parameter startX bound to: 221 - type: integer 
+	Parameter startY bound to: 220 - type: integer 
+	Parameter character_width bound to: 34 - type: integer 
+	Parameter character_height bound to: 22 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'CharacterRom' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/CharacterRom.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/CharacterRom.v:29]
+INFO: [Synth 8-3876] $readmem data file 'character.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/CharacterRom.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'CharacterRom' (18#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/CharacterRom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Player' (19#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Player.v:23]
+WARNING: [Synth 8-689] width (2) of port connection 'dodging' does not match port width (1) of module 'Player' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:97]
+INFO: [Synth 8-6157] synthesizing module 'gameBorder' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/gameBorder.v:20]
+	Parameter top bound to: 90 - type: integer 
+	Parameter bottom bound to: 324 - type: integer 
+	Parameter left bound to: 220 - type: integer 
+	Parameter right bound to: 454 - type: integer 
+	Parameter thickness bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'gameBorder' (20#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/gameBorder.v:20]
+INFO: [Synth 8-6157] synthesizing module 'Monster1' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster1.v:23]
+	Parameter monster_x bound to: 220 - type: integer 
+	Parameter monster_y bound to: 90 - type: integer 
+	Parameter b1_width bound to: 34 - type: integer 
+	Parameter b1_height bound to: 34 - type: integer 
+WARNING: [Synth 8-639] system function call 'urandom' not supported [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster1.v:39]
+INFO: [Synth 8-6157] synthesizing module 'MonsterRom' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom.v:29]
+INFO: [Synth 8-3876] $readmem data file 'b1.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'MonsterRom' (21#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Monster1' (22#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster1.v:23]
+WARNING: [Synth 8-689] width (2) of port connection 'dodging' does not match port width (1) of module 'Monster1' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:108]
+WARNING: [Synth 8-689] width (2) of port connection 'onCollision_b1' does not match port width (1) of module 'Monster1' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:109]
+INFO: [Synth 8-6157] synthesizing module 'Monster2' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster2.v:22]
+	Parameter monster_x bound to: 420 - type: integer 
+	Parameter monster_y bound to: 90 - type: integer 
+	Parameter b2_width bound to: 34 - type: integer 
+	Parameter b2_height bound to: 34 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'MonsterRom2' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom2.v:23]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom2.v:29]
+INFO: [Synth 8-3876] $readmem data file 'b2.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom2.v:32]
+INFO: [Synth 8-6155] done synthesizing module 'MonsterRom2' (23#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom2.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Monster2' (24#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster2.v:22]
+WARNING: [Synth 8-689] width (2) of port connection 'dodging' does not match port width (1) of module 'Monster2' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:110]
+WARNING: [Synth 8-689] width (2) of port connection 'onCollision_b2' does not match port width (1) of module 'Monster2' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:111]
+INFO: [Synth 8-6157] synthesizing module 'Monster3' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster3.v:23]
+	Parameter monster_x bound to: 330 - type: integer 
+	Parameter monster_y bound to: 90 - type: integer 
+	Parameter b3_width bound to: 34 - type: integer 
+	Parameter b3_height bound to: 34 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'MonsterRom3' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom3.v:22]
+INFO: [Synth 8-5534] Detected attribute (* ROM_STYLE = "block" *) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom3.v:28]
+INFO: [Synth 8-3876] $readmem data file 'b3.mem' is read successfully [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom3.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'MonsterRom3' (25#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom3.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'Monster3' (26#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Monster3.v:23]
+WARNING: [Synth 8-689] width (2) of port connection 'dodging' does not match port width (1) of module 'Monster3' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:112]
+WARNING: [Synth 8-689] width (2) of port connection 'onCollision_b3' does not match port width (1) of module 'Monster3' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:113]
+INFO: [Synth 8-6157] synthesizing module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/OnCollision.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'OnCollision' (27#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/OnCollision.v:23]
+WARNING: [Synth 8-689] width (2) of port connection 'b1_on' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:123]
+WARNING: [Synth 8-689] width (2) of port connection 'b2_on' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:123]
+WARNING: [Synth 8-689] width (2) of port connection 'b3_on' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:123]
+WARNING: [Synth 8-689] width (2) of port connection 'CharacterOn' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:124]
+WARNING: [Synth 8-689] width (2) of port connection 'target' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:124]
+WARNING: [Synth 8-689] width (2) of port connection 'onCollision_b1' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:125]
+WARNING: [Synth 8-689] width (2) of port connection 'onCollision_b2' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:125]
+WARNING: [Synth 8-689] width (2) of port connection 'onCollision_b3' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:126]
+WARNING: [Synth 8-689] width (2) of port connection 'state' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:126]
+WARNING: [Synth 8-689] width (2) of port connection 'dodging' does not match port width (1) of module 'OnCollision' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:126]
+INFO: [Synth 8-6157] synthesizing module 'Hp' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Hp.v:23]
+	Parameter hp_thickness bound to: 20 - type: integer 
+	Parameter player_y_upper bound to: 400 - type: integer 
+	Parameter player_y_lower bound to: 420 - type: integer 
+	Parameter enemy_y_upper bound to: 440 - type: integer 
+	Parameter enemy_y_lower bound to: 460 - type: integer 
+	Parameter hp_start bound to: 90 - type: integer 
+	Parameter hp_length bound to: 200 - type: integer 
+	Parameter pMaxHp bound to: 200 - type: integer 
+	Parameter eMaxHp bound to: 200 - type: integer 
+	Parameter enemy_damage bound to: 70 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Hp' (28#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Hp.v:23]
+WARNING: [Synth 8-689] width (2) of port connection 'b1_on' does not match port width (1) of module 'Hp' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:131]
+WARNING: [Synth 8-689] width (2) of port connection 'b2_on' does not match port width (1) of module 'Hp' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:131]
+WARNING: [Synth 8-689] width (2) of port connection 'b3_on' does not match port width (1) of module 'Hp' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:131]
+WARNING: [Synth 8-689] width (2) of port connection 'onCollision_b1' does not match port width (1) of module 'Hp' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:132]
+WARNING: [Synth 8-689] width (2) of port connection 'onCollision_b2' does not match port width (1) of module 'Hp' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:132]
+WARNING: [Synth 8-689] width (2) of port connection 'onCollision_b3' does not match port width (1) of module 'Hp' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:133]
+WARNING: [Synth 8-689] width (2) of port connection 'target' does not match port width (1) of module 'Hp' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:134]
+WARNING: [Synth 8-689] width (2) of port connection 'state' does not match port width (1) of module 'Hp' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:136]
+INFO: [Synth 8-6155] done synthesizing module 'Top' (29#1) [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:8]
+WARNING: [Synth 8-3331] design OnCollision has unconnected port state
+WARNING: [Synth 8-3331] design Teemo has unconnected port i_rst
+WARNING: [Synth 8-3331] design attack has unconnected port i_rst
+WARNING: [Synth 8-3331] design StartSprite has unconnected port i_rst
+WARNING: [Synth 8-3331] design MembersSprite has unconnected port i_rst
+WARNING: [Synth 8-3331] design GroupnameSprite has unconnected port i_rst
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 528.633 ; gain = 248.988
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 528.633 ; gain = 248.988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 528.633 ; gain = 248.988
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v2/undertale_v2.srcs/sources_1/new/basys3.xdc]
+WARNING: [Vivado 12-584] No ports matched 'tx'. [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v2/undertale_v2.srcs/sources_1/new/basys3.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v2/undertale_v2.srcs/sources_1/new/basys3.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'tx'. [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v2/undertale_v2.srcs/sources_1/new/basys3.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v2/undertale_v2.srcs/sources_1/new/basys3.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v2/undertale_v2.srcs/sources_1/new/basys3.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v2/undertale_v2.srcs/sources_1/new/basys3.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/Top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 849.066 ; gain = 0.000
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 849.094 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 849.094 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 849.094 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 849.094 ; gain = 569.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 849.094 ; gain = 569.449
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 849.094 ; gain = 569.449
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "O" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "cnt" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5546] ROM "Anode_Activate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Anode_Activate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Anode_Activate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Anode_Activate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "LED_out" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "LED_BCD" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dodging" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-4471] merging register 'green_reg[7:0]' into 'red_reg[7:0]' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/gameBorder.v:49]
+INFO: [Synth 8-4471] merging register 'blue_reg[7:0]' into 'red_reg[7:0]' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/gameBorder.v:50]
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-802] inferred FSM for state register 'b1_direction_reg' in module 'Monster1'
+INFO: [Synth 8-5544] ROM "b1_direction" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-802] inferred FSM for state register 'b2_direction_reg' in module 'Monster2'
+INFO: [Synth 8-5544] ROM "b2_direction" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5547] Trying to map ROM "memory_array" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-802] inferred FSM for state register 'b3_direction_reg' in module 'Monster3'
+INFO: [Synth 8-5544] ROM "b3_direction" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+WARNING: [Synth 8-327] inferring latch for variable 'w_reg' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:90]
+WARNING: [Synth 8-327] inferring latch for variable 's_reg' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:94]
+WARNING: [Synth 8-327] inferring latch for variable 'a_reg' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:82]
+WARNING: [Synth 8-327] inferring latch for variable 'd_reg' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:86]
+WARNING: [Synth 8-327] inferring latch for variable 'space_reg' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:98]
+WARNING: [Synth 8-327] inferring latch for variable 'enter_reg' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/keyboard2.v:102]
+WARNING: [Synth 8-327] inferring latch for variable 'LED_BCD_reg' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Seven_segment_LED_Display_Controller.v:83]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE0 |                                0 |                              001
+                  iSTATE |                                1 |                              000
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'b1_direction_reg' using encoding 'sequential' in module 'Monster1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE0 |                                0 |                               01
+                  iSTATE |                                1 |                               00
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'b2_direction_reg' using encoding 'sequential' in module 'Monster2'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE0 |                                0 |                               01
+                  iSTATE |                                1 |                               00
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'b3_direction_reg' using encoding 'sequential' in module 'Monster3'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:55 . Memory (MB): peak = 849.094 ; gain = 569.449
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 10    
+	   2 Input     17 Bit       Adders := 2     
+	   2 Input     15 Bit       Adders := 1     
+	   2 Input     14 Bit       Adders := 2     
+	   3 Input     12 Bit       Adders := 5     
+	   3 Input     11 Bit       Adders := 4     
+	   2 Input     11 Bit       Adders := 3     
+	   2 Input     10 Bit       Adders := 12    
+	   2 Input      9 Bit       Adders := 13    
+	   2 Input      8 Bit       Adders := 3     
+	   4 Input      8 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 3     
+	               15 Bit    Registers := 1     
+	               14 Bit    Registers := 2     
+	               11 Bit    Registers := 3     
+	               10 Bit    Registers := 8     
+	                9 Bit    Registers := 5     
+	                8 Bit    Registers := 19    
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 4     
+	                2 Bit    Registers := 9     
+	                1 Bit    Registers := 22    
++---ROMs : 
+	                              ROMs := 10    
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 19    
+	   2 Input      9 Bit        Muxes := 12    
+	   3 Input      9 Bit        Muxes := 3     
+	   2 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   3 Input      8 Bit        Muxes := 2     
+	  19 Input      7 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 34    
+	   5 Input      4 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 40    
+	   3 Input      1 Bit        Muxes := 6     
+	  12 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module Top 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 30    
+Module vga640x480 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 4     
++---Registers : 
+	               16 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 3     
+Module debouncer 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module PS2Receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 2     
+Module keyboard2 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 5     
+Module GroupnameRom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module GroupnameSprite 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     15 Bit       Adders := 1     
++---Registers : 
+	               15 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module MembersRom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module MembersSprite 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module StartRom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module StartSprite 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     14 Bit       Adders := 1     
++---Registers : 
+	               14 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module runningRom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module ScaleRom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module attack 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     12 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+Module Seven_segment_LED_Display_Controller 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input      8 Bit        Muxes := 1     
+	  19 Input      7 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	   5 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module TeemoRom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module Teemo 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     14 Bit       Adders := 1     
++---Registers : 
+	               14 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module Timer 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+Module CharacterRom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module Player 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     12 Bit       Adders := 1     
+	   3 Input     11 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 3     
+	   2 Input      9 Bit       Adders := 2     
++---Registers : 
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 3     
+	   2 Input      9 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 6     
+Module gameBorder 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module MonsterRom 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module Monster1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     12 Bit       Adders := 1     
+	   3 Input     11 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 2     
++---Registers : 
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 5     
+	   2 Input      9 Bit        Muxes := 3     
+	   3 Input      9 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   3 Input      1 Bit        Muxes := 2     
+Module MonsterRom2 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module Monster2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     12 Bit       Adders := 1     
+	   3 Input     11 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 2     
++---Registers : 
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 5     
+	   2 Input      9 Bit        Muxes := 3     
+	   3 Input      9 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   3 Input      1 Bit        Muxes := 2     
+Module MonsterRom3 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module Monster3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     12 Bit       Adders := 1     
+	   3 Input     11 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 2     
++---Registers : 
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 3     
+	   3 Input      9 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+	   3 Input      1 Bit        Muxes := 1     
+Module OnCollision 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module Hp 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
+	   4 Input      8 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 5     
+	                2 Bit    Registers := 3     
++---Muxes : 
+	   3 Input      8 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+DSP Report: Generating DSP address1, operation Mode is: A*(B:0x1bb).
+DSP Report: operator address1 is absorbed into DSP address1.
+DSP Report: Generating DSP address_reg, operation Mode is: PCIN+(A:0x0):B+(C:0xffffffffff97).
+DSP Report: register address_reg is absorbed into DSP address_reg.
+DSP Report: operator address0 is absorbed into DSP address_reg.
+DSP Report: Generating DSP address1, operation Mode is: A*(B:0x213).
+DSP Report: operator address1 is absorbed into DSP address1.
+DSP Report: Generating DSP address_reg, operation Mode is: PCIN+(A:0x0):B+(C:0xffffffffffba).
+DSP Report: register address_reg is absorbed into DSP address_reg.
+DSP Report: operator address0 is absorbed into DSP address_reg.
+DSP Report: Generating DSP address1, operation Mode is: A*(B:0xe4).
+DSP Report: operator address1 is absorbed into DSP address1.
+DSP Report: Generating DSP address_reg, operation Mode is: PCIN+(A:0x0):B+(C:0xffffffffff26).
+DSP Report: register address_reg is absorbed into DSP address_reg.
+DSP Report: operator address0 is absorbed into DSP address_reg.
+DSP Report: Generating DSP address1, operation Mode is: A*(B:0x5a).
+DSP Report: operator address1 is absorbed into DSP address1.
+DSP Report: Generating DSP address_reg, operation Mode is: PCIN+(A:0x0):B+(C:0xfffffffffeed).
+DSP Report: register address_reg is absorbed into DSP address_reg.
+DSP Report: operator address0 is absorbed into DSP address_reg.
+INFO: [Synth 8-5546] ROM "SevenSeg/Anode_Activate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "SevenSeg/Anode_Activate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "SevenSeg/Anode_Activate" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "SevenSeg/LED_out" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "SevenSeg/LED_BCD" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design Teemo has unconnected port i_rst
+WARNING: [Synth 8-3331] design attack has unconnected port i_rst
+WARNING: [Synth 8-3331] design StartSprite has unconnected port i_rst
+WARNING: [Synth 8-3331] design MembersSprite has unconnected port i_rst
+WARNING: [Synth 8-3331] design GroupnameSprite has unconnected port i_rst
+INFO: [Synth 8-3886] merging instance 'keyboard/uut/dataprev_reg[0]' (FDE) to 'keyboard/uut/keycode_reg[0]'
+INFO: [Synth 8-3886] merging instance 'keyboard/uut/dataprev_reg[1]' (FDE) to 'keyboard/uut/keycode_reg[1]'
+INFO: [Synth 8-3886] merging instance 'keyboard/uut/dataprev_reg[2]' (FDE) to 'keyboard/uut/keycode_reg[2]'
+INFO: [Synth 8-3886] merging instance 'keyboard/uut/dataprev_reg[3]' (FDE) to 'keyboard/uut/keycode_reg[3]'
+INFO: [Synth 8-3886] merging instance 'keyboard/uut/dataprev_reg[4]' (FDE) to 'keyboard/uut/keycode_reg[4]'
+INFO: [Synth 8-3886] merging instance 'keyboard/uut/dataprev_reg[5]' (FDE) to 'keyboard/uut/keycode_reg[5]'
+INFO: [Synth 8-3886] merging instance 'keyboard/uut/dataprev_reg[6]' (FDE) to 'keyboard/uut/keycode_reg[6]'
+INFO: [Synth 8-3886] merging instance 'keyboard/uut/dataprev_reg[7]' (FDE) to 'keyboard/uut/keycode_reg[7]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (Attacking/\target_reg[0] )
+INFO: [Synth 8-3886] merging instance 'mosnter3/b3_x_reg[0]' (FDRE) to 'mosnter3/b3_x_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mosnter3/b3_x_reg[1]' (FDSE) to 'mosnter3/b3_x_reg[8]'
+INFO: [Synth 8-3886] merging instance 'mosnter3/b3_x_reg[2]' (FDRE) to 'mosnter3/b3_x_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mosnter3/b3_x_reg[3]' (FDSE) to 'mosnter3/b3_x_reg[8]'
+INFO: [Synth 8-3886] merging instance 'mosnter3/b3_x_reg[4]' (FDRE) to 'mosnter3/b3_x_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mosnter3/b3_x_reg[5]' (FDRE) to 'mosnter3/b3_x_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mosnter3/b3_x_reg[6]' (FDSE) to 'mosnter3/b3_x_reg[8]'
+INFO: [Synth 8-3886] merging instance 'mosnter3/b3_x_reg[7]' (FDRE) to 'mosnter3/b3_x_reg[9]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (mosnter3/\b3_x_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (mosnter3/\b3_x_reg[9] )
+INFO: [Synth 8-3886] merging instance 'Hp/blue_reg[0]' (FDRE) to 'Hp/blue_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (Hp/\blue_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (Hp/\blue_reg[2] )
+INFO: [Synth 8-3886] merging instance 'Hp/blue_reg[3]' (FDRE) to 'Hp/green_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (Hp/\green_reg[0] )
+INFO: [Synth 8-3886] merging instance 'Hp/green_reg[1]' (FDRE) to 'Hp/red_reg[0]'
+INFO: [Synth 8-3886] merging instance 'Hp/green_reg[2]' (FDSE) to 'Hp/green_reg[3]'
+INFO: [Synth 8-3886] merging instance 'GameBorder/red_reg[0]' (FDSE) to 'GameBorder/red_reg[1]'
+INFO: [Synth 8-3886] merging instance 'GameBorder/red_reg[4]' (FDSE) to 'GameBorder/red_reg[1]'
+INFO: [Synth 8-3886] merging instance 'GameBorder/red_reg[5]' (FDSE) to 'GameBorder/red_reg[1]'
+INFO: [Synth 8-3886] merging instance 'GameBorder/red_reg[6]' (FDSE) to 'GameBorder/red_reg[1]'
+INFO: [Synth 8-3886] merging instance 'GameBorder/red_reg[7]' (FDSE) to 'GameBorder/red_reg[1]'
+INFO: [Synth 8-3886] merging instance 'Hp/red_reg[0]' (FDRE) to 'Hp/red_reg[1]'
+INFO: [Synth 8-3886] merging instance 'GameBorder/red_reg[1]' (FDSE) to 'GameBorder/red_reg[2]'
+INFO: [Synth 8-3886] merging instance 'Hp/red_reg[1]' (FDRE) to 'Hp/red_reg[2]'
+INFO: [Synth 8-3886] merging instance 'GameBorder/red_reg[2]' (FDSE) to 'GameBorder/red_reg[3]'
+INFO: [Synth 8-3886] merging instance 'Hp/red_reg[2]' (FDRE) to 'Hp/red_reg[3]'
+INFO: [Synth 8-3886] merging instance 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__5' (FD) to 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__6'
+INFO: [Synth 8-3886] merging instance 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__6' (FD) to 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__4'
+INFO: [Synth 8-3886] merging instance 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel' (FD) to 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__4'
+INFO: [Synth 8-3886] merging instance 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__0' (FD) to 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__4'
+INFO: [Synth 8-3886] merging instance 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__1' (FD) to 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__4'
+INFO: [Synth 8-3886] merging instance 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__3' (FD) to 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__4'
+INFO: [Synth 8-3886] merging instance 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__2' (FD) to 'MembersDisplay/i_0/MembersVRom/o_data_reg_mux_sel__4'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (mosnter3/\b3_on_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (mosnter2/\b2_on_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (GameBorder/\red_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (mosnter1/\b1_on_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (Hp/\hpOn_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\SevenSeg/LED_BCD_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\SevenSeg/LED_BCD_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\SevenSeg/LED_BCD_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\SevenSeg/LED_BCD_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\SevenSeg/LED_BCD_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\SevenSeg/LED_BCD_reg[3] )
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin target[1] with 1st driver pin 'Attacking/target[1]' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:74]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin target[1] with 2nd driver pin 'GND' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:74]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net target[1] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Top.v:74]
+WARNING: [Synth 8-3332] Sequential element (SevenSeg/LED_BCD_reg[7]) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (SevenSeg/LED_BCD_reg[6]) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (SevenSeg/LED_BCD_reg[5]) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (SevenSeg/LED_BCD_reg[4]) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (SevenSeg/LED_BCD_reg[3]) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (SevenSeg/LED_BCD_reg[2]) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (SevenSeg/LED_BCD_reg[1]) is unused and will be removed from module Top.
+WARNING: [Synth 8-3332] Sequential element (SevenSeg/LED_BCD_reg[0]) is unused and will be removed from module Top.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:23 ; elapsed = 00:01:29 . Memory (MB): peak = 849.094 ; gain = 569.449
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-5835] Resources of type BRAM have been overutilized. Used = 102, Available = 100. Will try to implement using LUT-RAM. 
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
+|Top         | p_0_out    | 256x8         | LUT            | 
++------------+------------+---------------+----------------+
+
+
+DSP: Preliminary Mapping  Report (see note below)
++----------------+-----------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping                       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+-----------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|GroupnameSprite | A*(B:0x1bb)                       | 15     | 9      | -      | -      | 24     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|GroupnameSprite | PCIN+(A:0x0):B+(C:0xffffffffff97) | 30     | 10     | 8      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|MembersSprite   | A*(B:0x213)                       | 17     | 10     | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|MembersSprite   | PCIN+(A:0x0):B+(C:0xffffffffffba) | 30     | 10     | 8      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|StartSprite     | A*(B:0xe4)                        | 14     | 8      | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|StartSprite     | PCIN+(A:0x0):B+(C:0xffffffffff26) | 30     | 10     | 9      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|Teemo           | A*(B:0x5a)                        | 14     | 7      | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|Teemo           | PCIN+(A:0x0):B+(C:0xfffffffffeed) | 30     | 10     | 10     | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
++----------------+-----------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/i_0/GroupnameVRom/o_data_reg_0_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/i_0/GroupnameVRom/o_data_reg_0_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/i_0/GroupnameVRom/o_data_reg_0_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/i_0/GroupnameVRom/o_data_reg_0_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/i_0/GroupnameVRom/o_data_reg_0_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/i_0/GroupnameVRom/o_data_reg_0_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/i_0/GroupnameVRom/o_data_reg_0_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/i_0/GroupnameVRom/o_data_reg_0_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_1_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_1_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_1_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_1_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_1_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_1_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_3_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_3_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_3_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_3_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_3_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/i_0/MembersVRom/o_data_reg_3_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance StartDisplay/i_0/StartVRom/o_data_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance StartDisplay/i_0/StartVRom/o_data_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance StartDisplay/i_0/StartVRom/o_data_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance StartDisplay/i_0/StartVRom/o_data_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Attacking/i_0/RunningRom/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Attacking/i_1/ScaleRom/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Teemo/i_0/TeemoRom/o_data_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Teemo/i_0/TeemoRom/o_data_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Teemo/i_0/TeemoRom/o_data_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Teemo/i_0/TeemoRom/o_data_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance player/i_0/PlayerRom/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mosnter1/i_0/MonsterRom/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mosnter2/i_0/MonsterRom2/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mosnter3/i_0/MonsterRom3/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:52 ; elapsed = 00:01:59 . Memory (MB): peak = 968.934 ; gain = 689.289
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:55 ; elapsed = 00:02:01 . Memory (MB): peak = 994.930 ; gain = 715.285
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'Collision/target_reg/Q' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/OnCollision.v:45]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/OnCollision.v:45]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/OnCollision.v:45]
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/GroupnameVRom/o_data_reg_0_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/GroupnameVRom/o_data_reg_0_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/GroupnameVRom/o_data_reg_0_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/GroupnameVRom/o_data_reg_0_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/GroupnameVRom/o_data_reg_0_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/GroupnameVRom/o_data_reg_0_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/GroupnameVRom/o_data_reg_0_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance GroupnameDisplay/GroupnameVRom/o_data_reg_0_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_1_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_1_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_1_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_1_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_1_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_1_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_3_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_3_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_3_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_3_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_3_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance MembersDisplay/MembersVRom/o_data_reg_3_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance StartDisplay/StartVRom/o_data_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance StartDisplay/StartVRom/o_data_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance StartDisplay/StartVRom/o_data_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance StartDisplay/StartVRom/o_data_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance StartDisplay/StartVRom/o_data_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Attacking/RunningRom/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Attacking/ScaleRom/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Teemo/TeemoRom/o_data_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Teemo/TeemoRom/o_data_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance Teemo/TeemoRom/o_data_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance player/PlayerRom/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mosnter1/MonsterRom/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mosnter2/MonsterRom2/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mosnter3/MonsterRom3/o_data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:00 ; elapsed = 00:02:07 . Memory (MB): peak = 1032.305 ; gain = 752.660
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:03 ; elapsed = 00:02:10 . Memory (MB): peak = 1032.305 ; gain = 752.660
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:03 ; elapsed = 00:02:10 . Memory (MB): peak = 1032.305 ; gain = 752.660
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:04 ; elapsed = 00:02:11 . Memory (MB): peak = 1032.305 ; gain = 752.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:04 ; elapsed = 00:02:11 . Memory (MB): peak = 1032.305 ; gain = 752.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:04 ; elapsed = 00:02:11 . Memory (MB): peak = 1032.305 ; gain = 752.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:04 ; elapsed = 00:02:11 . Memory (MB): peak = 1032.305 ; gain = 752.660
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------------+------+
+|      |Cell        |Count |
++------+------------+------+
+|1     |BUFG        |     3|
+|2     |CARRY4      |   209|
+|3     |DSP48E1     |     4|
+|4     |DSP48E1_1   |     4|
+|5     |LUT1        |    34|
+|6     |LUT2        |   297|
+|7     |LUT3        |   190|
+|8     |LUT4        |   421|
+|9     |LUT5        |   398|
+|10    |LUT6        |  1116|
+|11    |MUXF7       |   122|
+|12    |MUXF8       |    37|
+|13    |RAMB18E1    |     1|
+|14    |RAMB18E1_1  |     1|
+|15    |RAMB18E1_2  |     1|
+|16    |RAMB18E1_3  |     1|
+|17    |RAMB18E1_4  |     1|
+|18    |RAMB18E1_5  |     1|
+|19    |RAMB36E1    |     1|
+|20    |RAMB36E1_1  |     1|
+|21    |RAMB36E1_10 |     1|
+|22    |RAMB36E1_11 |     1|
+|23    |RAMB36E1_12 |     1|
+|24    |RAMB36E1_13 |     1|
+|25    |RAMB36E1_14 |     1|
+|26    |RAMB36E1_15 |     1|
+|27    |RAMB36E1_16 |     1|
+|28    |RAMB36E1_17 |     1|
+|29    |RAMB36E1_18 |     1|
+|30    |RAMB36E1_19 |     5|
+|31    |RAMB36E1_2  |     1|
+|32    |RAMB36E1_20 |    10|
+|33    |RAMB36E1_21 |     1|
+|34    |RAMB36E1_22 |     1|
+|35    |RAMB36E1_23 |     3|
+|36    |RAMB36E1_24 |     1|
+|37    |RAMB36E1_25 |     1|
+|38    |RAMB36E1_26 |     1|
+|39    |RAMB36E1_27 |     1|
+|40    |RAMB36E1_28 |     1|
+|41    |RAMB36E1_29 |     1|
+|42    |RAMB36E1_3  |     1|
+|43    |RAMB36E1_30 |     1|
+|44    |RAMB36E1_4  |     1|
+|45    |RAMB36E1_5  |     1|
+|46    |RAMB36E1_6  |     2|
+|47    |RAMB36E1_7  |     1|
+|48    |RAMB36E1_8  |     1|
+|49    |RAMB36E1_9  |     1|
+|50    |FDCE        |    20|
+|51    |FDRE        |   291|
+|52    |FDSE        |    24|
+|53    |LD          |     5|
+|54    |LDP         |     1|
+|55    |IBUF        |     4|
+|56    |OBUF        |    25|
++------+------------+------+
+
+Report Instance Areas: 
++------+-------------------+-------------------------------------+------+
+|      |Instance           |Module                               |Cells |
++------+-------------------+-------------------------------------+------+
+|1     |top                |                                     |  3258|
+|2     |  Attacking        |attack                               |   868|
+|3     |    RunningRom     |runningRom                           |    73|
+|4     |    ScaleRom       |ScaleRom                             |    78|
+|5     |  Collision        |OnCollision                          |    25|
+|6     |  GameBorder       |gameBorder                           |    12|
+|7     |  GroupnameDisplay |GroupnameSprite                      |    90|
+|8     |    GroupnameVRom  |GroupnameRom                         |    87|
+|9     |  Hp               |Hp                                   |    51|
+|10    |  MembersDisplay   |MembersSprite                        |    54|
+|11    |    MembersVRom    |MembersRom                           |    49|
+|12    |  SevenSeg         |Seven_segment_LED_Display_Controller |    33|
+|13    |  StartDisplay     |StartSprite                          |    75|
+|14    |    StartVRom      |StartRom                             |    72|
+|15    |  Teemo            |Teemo                                |    97|
+|16    |    TeemoRom       |TeemoRom                             |    94|
+|17    |  Timer            |Timer                                |    75|
+|18    |  display          |vga640x480                           |   462|
+|19    |  keyboard         |keyboard2                            |   139|
+|20    |    uut            |PS2Receiver                          |    95|
+|21    |      db_clk       |debouncer                            |    15|
+|22    |      db_data      |debouncer_0                          |    16|
+|23    |  mosnter1         |Monster1                             |   264|
+|24    |    MonsterRom     |MonsterRom                           |    81|
+|25    |  mosnter2         |Monster2                             |   309|
+|26    |    MonsterRom2    |MonsterRom2                          |   126|
+|27    |  mosnter3         |Monster3                             |   221|
+|28    |    MonsterRom3    |MonsterRom3                          |   124|
+|29    |  player           |Player                               |   248|
+|30    |    PlayerRom      |CharacterRom                         |    70|
++------+-------------------+-------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:04 ; elapsed = 00:02:11 . Memory (MB): peak = 1032.305 ; gain = 752.660
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 6 critical warnings and 21 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:44 ; elapsed = 00:01:58 . Memory (MB): peak = 1032.305 ; gain = 432.199
+Synthesis Optimization Complete : Time (s): cpu = 00:02:05 ; elapsed = 00:02:11 . Memory (MB): peak = 1032.305 ; gain = 752.660
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 435 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1032.305 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  LD => LDCE: 5 instances
+  LDP => LDPE: 1 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+259 Infos, 62 Warnings, 8 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:10 ; elapsed = 00:02:17 . Memory (MB): peak = 1032.305 ; gain = 765.016
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1032.305 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.runs/synth_1/Top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Top_utilization_synth.rpt -pb Top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Jun  2 01:06:25 2020...

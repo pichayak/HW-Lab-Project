@@ -230,27 +230,6 @@ assign scan_code_ready = got_code_tick;
 // route scan code data out
 assign scan_code = scan_out;
 
-//assign reset = 0;
-
-// Represent ScanCode Via Binary output
-// assign led[0] = got_code_tick; //produces no result
-//assign led[7:0] = scan_code;  // works
-
-
-// internal signal declarations for reference
-//    reg [2:0] state_reg, state_next;           // FSM state register and next state logic
-//    wire [7:0] scan_out;                       // scan code received from keyboard
-//    reg [7:0] scan_code_last;                  // Store the last valid scan code
-//    reg got_code_tick;                         // asserted to write curr scancode rcvd to FIFO
-//    wire scan_done_tick;                       // asserted to signal that ps2_rx has rcvd a scancode
-//    reg letter_case;                           // 0=lwrCase, 1=upCase, o/p 2 convert scancode 2 ascii
-//    reg [7:0] shift_type_reg, shift_type_next; // register holds scancodes of shiftkeys or capslock
-//    reg [1:0] caps_num_reg, caps_num_next;     // tracks num capslockscancodes rcvd in capslock state
-//                                               //      (3 before going back to lowecase state)
-//    wire [7:0] scan_code;                      // scan_code received from keyboard to process
-//    wire scan_code_ready;                      // signal to outer controlsystem to sample scan_code
-//    wire letter_case_out;                      // output determines if scan code is converted to 
-
 endmodule
 
 

@@ -18,36 +18,39 @@
 // 
 /////////////////////////////////////////////////////////////////////////////
 module gameBorder (
+    clk,
 	x,
 	y,
-
 	red,
 	green,
-	blue
+	blue,
+	border_on
 	);
 
-    parameter TOP = 96;
-    parameter BOTTOM = 290;
-    parameter LEFT = 220;
-    parameter RIGHT = 420;
-
-    parameter THICKNESS = 10;
-
+    parameter top = 90;
+    parameter bottom = 324;
+    parameter left = 220;
+    parameter right = 454;
+    parameter thickness = 5;
+    
+    input wire clk;
 	input wire [9:0] x, y;
-	output reg [4:0] red,green,blue; 
-
-	wire atBottomBorder = (BOTTOM<=y)&&(BOTTOM+THICKNESS>=Y;
-	wire atTopBorder = (TOP>=y)&&(y>=TOP-THICKNESS);
-
-	wire atRightBorder = (RIGHT<=x)&&(RIGHT+THICKNESS>=x);
-	wire atLeftBorder = (LEFT>=x)&&(x>=LEFT-THICKNESS);
-
-	//check inBoundary
-	wire inBoundaryY = (y>TOP)&&(y<BOTTOM);
-	wire inBoundaryY = (x>LEFT)&&(x<RIGHT);
-
-    assign red = (( x >= TOP-10 && x <= TOP) || (x >= BOTTOM && x<= BOTTOM+10)) || ((y >= LEFT-10 && y<= LEFT) || (y >= RIGHT && y <= RIGHT+10)) ? 8'd255 : 8'd0;
-    assign green = (( x >= TOP-10 && x <= TOP) || (x >= BOTTOM && x<= BOTTOM+10)) || ((y >= LEFT-10 && y<= LEFT) || (y >= RIGHT && y <= RIGHT+10)) ? 8'd255 : 8'd0;
-    assign blue = (( x >= TOP-10 && x <= TOP) || (x >= BOTTOM && x<= BOTTOM+10)) || ((y >= LEFT-10 && y<= LEFT) || (y >= RIGHT && y <= RIGHT+10)) ? 8'd255 : 8'd0;
- 
+	output reg [7:0] red,green,blue; 
+    output reg [1:0] border_on;
+    
+    always @ (posedge clk)
+    begin
+    if ( (x >= left && x <= right && y >= top-thickness && y <= top) 
+    || ( x >= left && x <= right && y >= bottom && y<= bottom+thickness ) 
+    || ( x >= left-thickness && x<= left && y >= top-thickness && y <= bottom+thickness)
+    ||(x >= right && x <= right+thickness && y >= top-thickness && y <= bottom+thickness) )
+        begin
+            red <= 8'd255 ;
+            green <= 8'd255 ;
+            blue <= 8'd255 ;
+            border_on <= 1;
+        end
+    else
+        border_on <= 0;
+    end    
 endmodule

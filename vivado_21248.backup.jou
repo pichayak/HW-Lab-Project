@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Mon Jun  1 10:11:58 2020
+# Process ID: 21248
+# Current directory: C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23536 C:\Users\Waragon\Downloads\HW_SynLab\HW-Syn-Lab\HW-Lab-Project\undertale_v3.xpr
+# Log file: C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/vivado.log
+# Journal file: C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+open_hw
+connect_hw_server
+connect_hw_server
+connect_hw_server
+connect_hw_server
+close_hw
+open_hw
+connect_hw_server
+close_hw

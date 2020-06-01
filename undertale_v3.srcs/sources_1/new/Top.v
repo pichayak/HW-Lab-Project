@@ -22,8 +22,13 @@ module Top(
     wire rst = RESET; // Setup Reset button
 
     //state game
-    reg [2:0] state = 0; //1 = attacking, 2 = dodging
-
+    wire [1:0] state; //1 = attacking, 2 = dodging
+    //Collision
+    wire [1:0] onCollision_b1;
+    wire [1:0] onCollision_b2;
+    wire [1:0] onCollision_b3;
+    wire [1:0] dodging;
+    
     // instantiate vga640x480 code
     wire [9:0] x; // pixel x position: 10-bit value: 0-1023 : only need 800
     wire [9:0] y; // pixel y position: 10-bit value: 0-1023 : only need 525
@@ -32,11 +37,15 @@ module Top(
     vga640x480 display (.i_clk(CLK),.i_rst(rst),.o_hsync(HSYNC), 
                         .o_vsync(VSYNC),.o_x(x),.o_y(y),.o_active(active),
                         .pix_clk(PixCLK));
+                        
 //keyboard setup
-    wire [7:0] ascii_code;
-    
-    keyboard keyboard (.clk(PixCLK),.reset(rst), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
-        .ascii_code(ascii_code), .LED_out(LED_out), .Anode_Activate(Anode_Activate));
+    //wire [7:0] ascii_code;
+    wire w, a, s, d, space, enter;
+    wire [15:0] code;
+//    keyboard keyboard (.clk(PixCLK),.reset(rst), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
+//        .ascii_code(ascii_code), .LED_out(LED_out), .Anode_Activate(Anode_Activate));
+    keyboard2 keyboard (.clk(PixCLK),.PS2Data(PS2Data),.PS2Clk(PS2Clk),
+        .w(w),.s(s),.a(a),.d(d),.space(space),.enter(enter), .keycodev(code));
     
 //members page      
     // instantiate GroupName code
@@ -60,31 +69,48 @@ module Top(
     wire [7:0] runningOut; 
     wire [1:0] scaleOn;
     wire [7:0] scaleOut;
-    wire [7:0] damage; 
-    attack Attacking (.i_clk(PixCLK),.i_rst(rst),.xx(x),.yy(y), .aactive(active), 
-        .button(ascii_code), .damage(damage), 
-        .runningOut(runningOut),.runningOn(runningOn)
-        ,.scaleOut(scaleOut), .scaleOn(scaleOn) );
+    wire [7:0] pdamage; 
+    wire [1:0] target;
+    attack Attacking (.i_clk(PixCLK),.i_rst(rst),.xx(x),.yy(y), .aactive(active),.button(space)
+        ,.pdamage(pdamage), .target(target), .runningOut(runningOut),.runningOn(runningOn), 
+        .state(state), .scaleOut(scaleOut), .scaleOn(scaleOn) );
+    //display damage on 7Seg
+    Seven_segment_LED_Display_Controller SevenSeg (.clk(PixCLK), .reset(RESET),
+        .ascii_code(onCollision_b3), .Anode_Activate(Anode_Activate),.LED_out(LED_out));
+    //teemo
+    wire [1:0] TeemoOn; // 1=on, 0=off
+    wire [7:0] TeemoOut; 
+    Teemo Teemo (.i_clk(PixCLK),.i_rst(rst),.xx(x),.yy(y),.aactive(active),
+                          .TeemoOn(TeemoOn),.TeemoOut(TeemoOut));
+    //Timer
+    wire [1:0] gotDamage;
+    wire [1:0] p_alive, e_alive;       
 
+   Timer Timer(.PixClk(PixCLK),.Btn(space), .enter(enter), .state(state),
+        .p_alive(p_alive), .e_alive(e_alive), 
+        .gotDamage(gotDamage), .dodging(dodging));   
+        
 // instatiate dodging code
     wire [1:0] CharacterOn;
     wire [7:0] CharacterOut;
     Player player (.clk(PixCLK), .x(x), .y(y), .aactive(active),
-        .button(ascii_code), .character_on(CharacterOn), .character_out(CharacterOut));
+        .w(w),.s(s),.a(a),.d(d), .dodging(dodging),
+        .character_on(CharacterOn), .character_out(CharacterOut));
     
     //instanitiate border
-//    wire [4:0] red, green, blue;
-//    gameBorder GameBorder (.x(x), .y(y), .red(red), .green(green), .blue(blue));  
+    wire [7:0] red, green, blue;
+    wire [1:0] border_on;
+    gameBorder GameBorder (.clk(PixCLK), .x(x), .y(y), .red(red), .green(green), .blue(blue), .border_on(border_on));  
             
     //instanitiate monster
     wire [1:0] b1_on, b2_on, b3_on;
     wire [7:0] b1Out, b2Out, b3Out;
-    Monster1 mosnter1 (.clk(PixCLK), .x(x), .y(y), .aactive(active),
-         .b1_on(b1_on), .b1_out(b1Out));
-    Monster2 mosnter2 (.clk(PixCLK), .x(x), .y(y), .aactive(active),
-         .b2_on(b2_on), .b2_out(b2Out));
-    Monster3 mosnter3 (.clk(PixCLK), .x(x), .y(y), .aactive(active),
-         .b3_on(b3_on), .b3_out(b3Out));
+    Monster1 mosnter1 (.clk(PixCLK), .x(x), .y(y), .aactive(active),.dodging(dodging),
+         .b1_on(b1_on), .b1_out(b1Out), .onCollision_b1(onCollision_b1));
+    Monster2 mosnter2 (.clk(PixCLK), .x(x), .y(y), .aactive(active),.dodging(dodging),
+         .b2_on(b2_on), .b2_out(b2Out), .onCollision_b2(onCollision_b2));
+    Monster3 mosnter3 (.clk(PixCLK), .x(x), .y(y), .aactive(active),.dodging(dodging),
+         .b3_on(b3_on), .b3_out(b3Out), .onCollision_b3(onCollision_b3));
     
     // load colour palette
     reg [7:0] palette [0:191]; // 8 bit values from the 192 hex entries in the colour palette
@@ -93,18 +119,22 @@ module Top(
         $readmemh("pal24bit.mem", palette); // load 192 hex values into "palette"
     end
     
-    always @ (*)
-    begin //state 0 = first page
-        if (ascii_code[7:0] == 8'h20) // type space to change state to 2
-            state = 2;
-        else  if (ascii_code[7:0] == 8'h0D) //type enter to change state to 1
-            state = 1;
-        else
-            begin
-            
-            end
-    end
-     
+    //OnCollision
+    OnCollision Collision (.PixClk(PixCLK), .b1_on(b1_on), .b2_on(b2_on), .b3_on(b3_on),
+        .CharacterOn(CharacterOn), .target(target),
+        .onCollision_b1(onCollision_b1), .onCollision_b2(onCollision_b2),
+        .onCollision_b3(onCollision_b3), .state(state), .dodging(dodging));
+ //hp bar
+    wire [7:0] red_hp, green_hp, blue_hp;
+    wire [1:0] hpOn;         
+    Hp Hp (.Clk(PixCLK),.x(x),.y(y),.damage(pdamage),
+        .b1_on(b1_on), .b2_on(b2_on),.b3_on(b3_on),
+        .onCollision_b1(onCollision_b1), .onCollision_b2(onCollision_b2),
+        .onCollision_b3(onCollision_b3),
+        .target(target),.red(red_hp),.green(green_hp),
+        .blue(blue_hp), .p_alive(p_alive), .e_alive(e_alive),
+        .hpOn(hpOn), .gotDamage(gotDamage), .state(state)); //show hp
+         
     // draw on the active area of the screen
     always @ (posedge PixCLK)
     begin
@@ -136,10 +166,16 @@ module Top(
                         BLUE <= (palette[(COL*3)+2])>>4; // BLUE bits(7:4) from colour palette
                     end
             end
-//1 enemy   "enter"         
-        else if (state == 1) //state 1 test display enemy
+//1 dodging      
+        else if (active && state == 1) //character create ( dodging )
             begin
-                if (CharacterOn == 1) 
+                if(border_on == 1)
+                    begin
+                        RED <= red;
+                        GREEN <= green;
+                        BLUE <= blue;
+                    end
+                else if (CharacterOn == 1) 
                     begin
                         RED <= (palette[(CharacterOut*3)])>>4; 
                         GREEN <= (palette[(CharacterOut*3)+1])>>4; 
@@ -163,6 +199,12 @@ module Top(
                         GREEN <= (palette[(b3Out*3)+1])>>4; 
                         BLUE <= (palette[(b3Out*3)+2])>>4; 
                     end
+                else if (hpOn == 1)
+                    begin
+                        RED <= red_hp; 
+                        GREEN <= green_hp; 
+                        BLUE <=  blue_hp; 
+                    end
                 else
                     begin
                         RED <= (palette[(COL*3)])>>4; // RED bits(7:4) from colour palette
@@ -170,20 +212,32 @@ module Top(
                         BLUE <= (palette[(COL*3)+2])>>4; // BLUE bits(7:4) from colour palette
                     end
             end
-//2 dodging             
-        else if (state == 2) //state 2 character create ( dodging )
+//2 running bar   "space"          
+        else if (active && state == 2) //state 2 running
             begin
-                if(scaleOn == 1)
+                if (scaleOn == 1)
                     begin
                         RED <= (palette[(scaleOut*3)])>>4; // RED bits(7:4) from colour palette
                         GREEN <= (palette[(scaleOut*3)+1])>>4; // GREEN bits(7:4) from colour palette
                         BLUE <= (palette[(scaleOut*3)+2])>>4; // BLUE bits(7:4) from colour palette
                     end
-                else if(runningOn == 1)
+                else if (runningOn == 1)
                     begin
                         RED <= (palette[(runningOut*3)])>>4; // RED bits(7:4) from colour palette
                         GREEN <= (palette[(runningOut*3)+1])>>4; // GREEN bits(7:4) from colour palette
                         BLUE <= (palette[(runningOut*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                    end
+                else if (hpOn == 1)
+                    begin
+                        RED <= red_hp; 
+                        GREEN <= green_hp; 
+                        BLUE <=  blue_hp; 
+                    end
+                else if (TeemoOn == 1)
+                    begin 
+                        RED <= (palette[(TeemoOut*3)])>>4; // RED bits(7:4) from colour palette
+                        GREEN <= (palette[(TeemoOut*3)+1])>>4; // GREEN bits(7:4) from colour palette
+                        BLUE <= (palette[(TeemoOut*3)+2])>>4; // BLUE bits(7:4) from colour palette
                     end
                 else
                     begin
@@ -192,16 +246,6 @@ module Top(
                         BLUE <= (palette[(COL*3)+2])>>4; // BLUE bits(7:4) from colour palette
                     end
             end
- //3 border           
-//        else if ( state == 3) //test border type "z"
-//            begin
-//                RED <= red;
-//                GREEN <= green;
-//                BLUE <= blue;
-//                RED <= (palette[(mout*3)])>>4; // RED bits(7:4) from colour palette
-//                GREEN <= (palette[(mout*3)+1])>>4; // GREEN bits(7:4) from colour palette
-//                BLUE <= (palette[(mout*3)+2])>>4; // BLUE bits(7:4) from colour palette
-//            end
         else
             begin
                 RED <= 0; // set RED, GREEN & BLUE

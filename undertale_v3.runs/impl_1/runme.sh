@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/undertale_v3/undertale_v3.runs/impl_1'
+HD_PWD='C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
