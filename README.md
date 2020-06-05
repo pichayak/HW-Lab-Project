@@ -8,7 +8,9 @@
 
 # แรงบันดาลใจ
 BeeInvader Project
-https://github.com/AdrianFPGA/basys3
+	https://github.com/AdrianFPGA/basys3
+Keyboard Demo
+	https://github.com/Digilent/Basys-3-Keyboard
 
 # กลุ่มที่ปรึกษาด้วย
 	teemo
