@@ -36,7 +36,7 @@ module bullet2(
     localparam b2_width = 34;        // bullet2 width in pixels
     localparam b2_height = 34;       // bullet2 height in pixels
     
-    // instantiate b1Rom code
+    // instantiate b2Rom code
     reg [10:0] b2_address;            // 2^11 = 2048,  34 x 34 = 1156
     (*ROM_STYLE="block"*) reg [7:0] b2 [0:1155]; // 8 bit values for 1020 pixels of bullet (34 x 34)
 
