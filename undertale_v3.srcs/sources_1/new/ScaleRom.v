@@ -21,9 +21,9 @@
 
 
 module ScaleRom(
-    input wire [8:0] i_addr, // 
+    input wire [8:0] i_addr, 
     input wire i_clk2,
-    output reg [7:0] o_data // 
+    output reg [7:0] o_data
     );
 
     (*ROM_STYLE="block"*) reg [7:0] memory_array [0:335]; 

@@ -36,16 +36,20 @@ input wire [1:0] gotDamage,
 input wire b1_on,
 input wire b2_on,
 input wire b3_on,
+input wire ogOn,
+input wire obOn,
+input wire obXLOn,
 input wire onCollision_b1,
 input wire onCollision_b2,
 input wire onCollision_b3,
+input wire onCollision_og,
+input wire onCollision_ob,
+input wire onCollision_obXL,
 input wire state
 );
 
 initial p_alive = 1;
 initial e_alive = 1;
-
-parameter hp_thickness = 20;
 
 parameter player_y_upper = 400;
 parameter player_y_lower = 420;
@@ -81,6 +85,17 @@ always @(posedge Clk) begin
         stack_pdamage = stack_pdamage + enemy_damage;
     if(b3_on == 1 && onCollision_b3 == 1 && state == 1)
         stack_pdamage = stack_pdamage + enemy_damage;
+    if(ogOn == 1 && onCollision_og == 1 && state == 1)
+    begin
+        if(stack_pdamage-50 <0) 
+            stack_pdamage=0;
+        else
+            stack_pdamage = stack_pdamage - 50;
+    end
+    if(obOn == 1 && onCollision_ob == 1 && state == 1)
+        stack_pdamage = stack_pdamage + 40;
+    if(obXLOn == 1 && onCollision_obXL == 1 && state == 1)
+        stack_pdamage = stack_pdamage + 80;
     //display    
     //player
     if(player_y_upper <= y && y <= player_y_lower && hp_start <= x && x <= 290-stack_edamage) 

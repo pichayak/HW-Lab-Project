@@ -35,7 +35,7 @@ module Player(
     );
 
     // instantiate BeeRom code
-    reg [9:0] address; // 2^10 or 1024, need 34 x 27 = 918
+    reg [9:0] address; 
     CharacterRom PlayerRom (.i_addr(address),.i_clk2(clk),.o_data(character_out));
     
     localparam startX = 221;
@@ -54,7 +54,7 @@ module Player(
                 y_corner <= startY;
             end
         if (x==639 && y==479)
-            begin // check for button pressed
+            begin 
                 if (d == 1 && x_corner<420) //d right
                     x_corner<=x_corner+9'd1;
                 if (a == 1 && x_corner>220) //a left
@@ -65,7 +65,7 @@ module Player(
                     y_corner<= y_corner+8'd1;
             end    
         if (aactive)
-            begin // check if xx,yy are within the confines of the Bee character
+            begin 
                 if (x==x_corner-1 && y==y_corner)
                     begin
                         address <= 0;

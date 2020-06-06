@@ -21,36 +21,34 @@
 
 
 module Monster1(
-    input wire clk, // 25MHz pixel clock
-    input wire [9:0] x, // current x position
-    input wire [9:0] y, // current y position
-    input wire aactive, // high during active pixel drawing
-    output reg [1:0] b1_on, // 1=on, 0=off
-    output wire [7:0] b1_out, // 8 bit pixel value from Monster1.mem
+    input wire clk, 
+    input wire [9:0] x, 
+    input wire [9:0] y, 
+    input wire aactive, 
+    output reg [1:0] b1_on, 
+    output wire [7:0] b1_out, 
     input wire onCollision_b1,
     input wire dodging
     );
 
     reg [1:0] aldCollision = 0;
     
-    // random bullet pattern
     reg [1:0] pattern;
     initial begin
         pattern = $urandom%1;
     end
 
-    // instantiate MonsterRom code
-    reg [10:0] address; // 2^10 or 1024, need 34 x 27 = 918
+    reg [10:0] address; 
     MonsterRom MonsterRom (.i_addr(address),.i_clk2(clk),.o_data(b1_out));
     
     localparam monster_x = 220;
     localparam monster_y = 90;        
-    // setup character positions and sizes
-    reg [9:0] b1_x = 220; //character start position - X-axis
-	reg [8:0] b1_y = 90; //character start position - Y-axis
+
+    reg [9:0] b1_x = 220; 
+	reg [8:0] b1_y = 90; 
 	reg [2:0] b1_direction = 1;
-	localparam b1_width = 34; //character width in weight
-	localparam b1_height = 34; //character height in weight
+	localparam b1_width = 34; 
+	localparam b1_height = 34; 
   
     always @ (posedge clk)
     begin

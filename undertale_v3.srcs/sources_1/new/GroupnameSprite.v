@@ -26,21 +26,18 @@ module GroupnameSprite(
     input wire [9:0] xx, 
     input wire [9:0] yy,
     input wire aactive,
-    output reg [1:0] GroupnameSpriteOn, // 1=on, 0=off
+    output reg [1:0] GroupnameSpriteOn, 
     output wire [7:0] dataout
     );
 
-    // instantiate BeeRom code
-    reg [14:0] address; // 2^10 or 1024, need 34 x 27 = 918
+    reg [14:0] address; 
     GroupnameRom GroupnameVRom (.i_addr(address),.i_clk2(i_clk),.o_data(dataout));
     
-    // setup character positions and sizes
-    reg [9:0] GroupX = 105; // Bee X start position
-    reg [8:0] GroupY = 81; // Bee Y start position
-    localparam GroupWidth = 443; // Bee width in pixels
-    localparam GroupHeight = 47; // Bee height in pixels
+    reg [9:0] GroupX = 105; 
+    reg [8:0] GroupY = 81; 
+    localparam GroupWidth = 443;
+    localparam GroupHeight = 47; 
     
-    // check if xx,yy are within the confines of the Bee character
     always @ (posedge i_clk)
     begin
         if (aactive)

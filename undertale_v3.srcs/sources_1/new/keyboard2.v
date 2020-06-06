@@ -1,22 +1,20 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Digilent Inc 
-// Engineer: Arthur Brown
+// Company: 
+// Engineer: 
 // 
-// Create Date: 07/27/2016 02:04:01 PM
+// Create Date: 05/27/2016 02:04:01 PM
 // Design Name: Basys3 Keyboard Demo
-// Module Name: top
+// Module Name: Top
 // Project Name: Keyboard
 // Target Devices: Basys3
-// Tool Versions: 2016.X
+// Tool Versions: 
 // Description: 
-//     Receives input from USB-HID in the form of a PS/2, displays keyboard key presses and releases over USB-UART.
 // Dependencies: 
 // 
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-//     Known issue, when multiple buttons are pressed and one is released, the scan code of the one still held down is ometimes re-sent.
 //////////////////////////////////////////////////////////////////////////////////
 
 module keyboard2(
@@ -37,7 +35,6 @@ module keyboard2(
     reg         start=0;
     reg         CLK50MHZ=0;
     wire [31:0] tbuf;
-    //reg  [15:0] keycodev=0;
     wire [15:0] keycode;
     wire [ 7:0] tbus;
     reg  [ 2:0] bcount=0;
@@ -48,15 +45,8 @@ module keyboard2(
         CLK50MHZ<=~CLK50MHZ;
     end
     
-    PS2Receiver uut (
-        .clk(CLK50MHZ),
-        .kclk(PS2Clk),
-        .kdata(PS2Data),
-        .keycode(keycode),
-        .oflag(flag)
-    );
-    
-    
+    PS2Receiver uut (.clk(CLK50MHZ),.kclk(PS2Clk),.kdata(PS2Data),.keycode(keycode),.oflag(flag));
+
     always@(keycode)
         if (keycode[7:0] == 8'hf0) begin
             cn <= 1'b0;
@@ -70,49 +60,39 @@ module keyboard2(
         end
     
     always@(posedge clk)
-        if (flag == 1'b1 && cn == 1'b1) begin
-            start <= 1'b1;
-            keycodev <= keycode;
-        end else
+        if (flag == 1'b1 && cn == 1'b1) 
+            begin
+                start <= 1'b1;
+                keycodev <= keycode;
+            end 
+        else
             start <= 1'b0;
     
     always @(keycodev)
-        if (keycodev[15:8]!=8'b11110000 && keycodev[7:0]==8'b00011100)//a
-            begin
-             a = 1'b1;
-            end
-        else if (keycodev[15:8]!=8'b11110000 && keycodev[7:0]==8'b00100011)//d
-            begin
-             d = 1'b1;
-            end
-        else if (keycodev[15:8]!=8'b11110000 && keycodev[7:0]==8'b00011101)//w
-            begin
-             w = 1'b1;
-            end
-        else if (keycodev[15:8]!=8'b11110000 && keycodev[7:0]==8'b00011011)//s
-            begin
-             s = 1'b1;
-            end
-        else if (keycodev[15:8]!=8'b11110000 && keycodev[7:0]==8'b00101001)//space
-            begin
-             space = 1'b1;
-            end
-        else if (keycodev[15:8]!=8'b11110000 && keycodev[7:0]==8'b01011010)//eter
-            begin
-             enter = 1'b1;
-            end                                                            
+        if (keycodev[15:8]!=8'b11110000 )
+        begin
+            case(keycodev[7:0])
+                8'b00011100: a = 1'b1;
+                8'b00100011: d = 1'b1;
+                8'b00011101: w = 1'b1;
+                8'b00011011: s = 1'b1;
+                8'b00101001: space = 1'b1;
+                8'b01011010: enter = 1'b1;
+            endcase
+        end                                              
         else
             begin
-             w = 1'b0;
-             s = 1'b0;
-             a = 1'b0;
-             d = 1'b0;
-             space = 1'b0;
-             enter = 1'b0;
-            end
+                w = 1'b0;
+                s = 1'b0;
+                a = 1'b0;
+                d = 1'b0;
+                space = 1'b0;
+                enter = 1'b0;
+            end 
+                     
     initial
-    begin
-        keycodev<=16'b1111111111111111;
-    end           
-            
+        begin
+            keycodev<=16'b1111111111111111;
+        end  
+                       
 endmodule

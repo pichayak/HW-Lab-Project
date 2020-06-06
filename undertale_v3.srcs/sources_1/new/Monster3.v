@@ -21,12 +21,12 @@
 
 
 module Monster3(
-input wire clk, // 25MHz pixel clock
-    input wire [9:0] x, // current x position
-    input wire [9:0] y, // current y position
-    input wire aactive, // high during active pixel drawing
-    output reg [1:0] b3_on, // 1=on, 0=off
-    output wire [7:0] b3_out, // 8 bit pixel value from Bee.mem
+input wire clk, 
+    input wire [9:0] x,
+    input wire [9:0] y,
+    input wire aactive, 
+    output reg [1:0] b3_on,
+    output wire [7:0] b3_out, 
     input wire onCollision_b3,
     input wire dodging
     );
@@ -36,12 +36,12 @@ input wire clk, // 25MHz pixel clock
     
     localparam monster_x = 330;
     localparam monster_y = 90;          
-    // setup character positions and sizes
-    reg [9:0] b3_x = 330; //character start position - X-axis
-	reg [8:0] b3_y = 90; //character start position - Y-axis
+
+    reg [9:0] b3_x = 330; 
+	reg [8:0] b3_y = 90; 
 	reg [1:0] b3_direction = 1;
-	localparam b3_width = 34; //character width in weight
-	localparam b3_height = 34; //character height in weight
+	localparam b3_width = 34; 
+	localparam b3_height = 34;
   
     always @ (posedge clk)
     begin
@@ -74,7 +74,7 @@ input wire clk, // 25MHz pixel clock
                     end
             end   
         if (aactive)
-            begin // check if xx,yy are within the confines of the Bee character
+            begin 
                 if (x==b3_x-1 && y==b3_y)
                     begin
                         address <= 0;

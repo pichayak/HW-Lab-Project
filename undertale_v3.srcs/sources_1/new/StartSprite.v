@@ -26,21 +26,18 @@ module StartSprite(
     input wire [9:0] xx, 
     input wire [9:0] yy,
     input wire aactive,
-    output reg [1:0] StartSpriteOn, // 1=on, 0=off
+    output reg [1:0] StartSpriteOn,
     output wire [7:0] startout
     );
 
-    // instantiate BeeRom code
-    reg [13:0] address; // 2^10 or 1024, need 34 x 27 = 918
+    reg [13:0] address;
     StartRom StartVRom (.i_addr(address),.i_clk2(i_clk),.o_data(startout));
+
+    reg [9:0] StartX = 218;
+    reg [8:0] StartY = 384; 
+    localparam StartWidth = 228;
+    localparam StartHeight = 49;
     
-    // setup character positions and sizes
-    reg [9:0] StartX = 218; // Bee X start position
-    reg [8:0] StartY = 384; // Bee Y start position
-    localparam StartWidth = 228; // Bee width in pixels
-    localparam StartHeight = 49; // Bee height in pixels
-    
-    // check if xx,yy are within the confines of the character
     always @ (posedge i_clk)
     begin
         if (aactive)

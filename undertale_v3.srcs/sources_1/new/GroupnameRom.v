@@ -21,12 +21,12 @@
 
 
 module GroupnameRom(
-    input wire [14:0] i_addr, // (9:0) or 2^10 or 1024, need 34 x 27 = 918
+    input wire [14:0] i_addr, 
     input wire i_clk2,
-    output reg [7:0] o_data // (7:0) 8 bit pixel value from Bee.mem
+    output reg [7:0] o_data 
     );
 
-    (*ROM_STYLE="block"*) reg [7:0] memory_array [0:20820]; // 8 bit values for 918 pixels of Bee (34 x 27)
+    (*ROM_STYLE="block"*) reg [7:0] memory_array [0:20820]; 
 
     initial begin
             $readmemh("group_name3.mem", memory_array);

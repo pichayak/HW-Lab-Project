@@ -2,6 +2,11 @@
 // Top Module : Digilent Basys 3               
 // BeeInvaders Tutorial 2 : Onboard clock 100MHz
 // VGA Resolution 640x480 @ 60Hz : Pixel Clock 25MHz
+// 
+// Online resources
+// Inspired by
+// BeeInvader Project: https://github.com/AdrianFPGA/basys3
+// Keyboard Demo: https://github.com/Digilent/Basys-3-Keyboard
 //--------------------------------------------------
 `timescale 1ns / 1ps
 
@@ -22,7 +27,7 @@ module Top(
     wire rst = RESET; // Setup Reset button
 
     //state game
-    wire [1:0] state; //1 = attacking, 2 = dodging
+    wire [1:0] state; //0= start, 1 = attacking, 2 = dodging
     //Collision
     wire [1:0] onCollision_b1;
     wire [1:0] onCollision_b2;
@@ -39,11 +44,8 @@ module Top(
                         .pix_clk(PixCLK));
                         
 //keyboard setup
-    //wire [7:0] ascii_code;
     wire w, a, s, d, space, enter;
     wire [15:0] code;
-//    keyboard keyboard (.clk(PixCLK),.reset(rst), .PS2Data(PS2Data), .PS2Clk(PS2Clk),
-//        .ascii_code(ascii_code), .LED_out(LED_out), .Anode_Activate(Anode_Activate));
     keyboard2 keyboard (.clk(PixCLK),.PS2Data(PS2Data),.PS2Clk(PS2Clk),
         .w(w),.s(s),.a(a),.d(d),.space(space),.enter(enter), .keycodev(code));
     
@@ -74,9 +76,11 @@ module Top(
     attack Attacking (.i_clk(PixCLK),.i_rst(rst),.xx(x),.yy(y), .aactive(active),.button(space)
         ,.pdamage(pdamage), .target(target), .runningOut(runningOut),.runningOn(runningOn), 
         .state(state), .scaleOut(scaleOut), .scaleOn(scaleOn) );
-    //display damage on 7Seg
+    
+    //display damage on 7Seg for debug
     Seven_segment_LED_Display_Controller SevenSeg (.clk(PixCLK), .reset(RESET),
         .ascii_code(onCollision_b3), .Anode_Activate(Anode_Activate),.LED_out(LED_out));
+    
     //teemo
     wire [1:0] TeemoOn; // 1=on, 0=off
     wire [7:0] TeemoOut; 
@@ -85,8 +89,7 @@ module Top(
     //Timer
     wire [1:0] gotDamage;
     wire [1:0] p_alive, e_alive;       
-
-   Timer Timer(.PixClk(PixCLK),.Btn(space), .enter(enter), .state(state),
+    Timer Timer(.PixClk(PixCLK),.Btn(space), .enter(enter), .state(state),
         .p_alive(p_alive), .e_alive(e_alive), 
         .gotDamage(gotDamage), .dodging(dodging));   
         
@@ -112,28 +115,52 @@ module Top(
     Monster3 mosnter3 (.clk(PixCLK), .x(x), .y(y), .aactive(active),.dodging(dodging),
          .b3_on(b3_on), .b3_out(b3Out), .onCollision_b3(onCollision_b3));
     
-    // load colour palette
-    reg [7:0] palette [0:191]; // 8 bit values from the 192 hex entries in the colour palette
-    reg [7:0] COL = 0; // background colour palette value
+    wire [7:0] og_red, og_green, og_blue;
+    wire [1:0] ogOn,onCollision_og;
+    ObstacleGreen OG (.Clk(PixCLK), .x(x), .y(y), .red(og_red), .green(og_green)
+        , .blue(og_blue), .ogOn(ogOn), .onCollision_og(onCollision_og));
+        
+    wire [7:0] ob_red, ob_green, ob_blue;
+    wire [1:0] obOn,onCollision_ob;
+    ObstacleBlue OB (.Clk(PixCLK), .x(x), .y(y), .red(ob_red), .green(ob_green)
+        , .blue(ob_blue), .obOn(obOn), .onCollision_ob(onCollision_ob));
+        
+    wire [7:0] obXL_red, obXL_green, obXL_blue;
+    wire [1:0] obXLOn,onCollision_obXL;
+    ObstacleBlueXL OBXL (.Clk(PixCLK), .x(x), .y(y), .red(obXL_red), .green(obXL_green)
+        , .blue(obXL_blue), .obXLOn(obXLOn), .onCollision_obXL(onCollision_obXL));
+        
+    wire [7:0] ogr_red, ogr_green, ogr_blue;
+    wire [1:0] ogreyOn;
+    ObstacleGrey OGrey (.Clk(PixCLK), .x(x), .y(y), .red(ogr_red), .green(ogr_green)
+        , .blue(ogr_blue), .ogreyOn(ogreyOn));
+        
+    // load global colour palette
+    reg [7:0] palette [0:191]; 
+    reg [7:0] COL = 0; 
     initial begin
-        $readmemh("pal24bit.mem", palette); // load 192 hex values into "palette"
+        $readmemh("pal24bit.mem", palette);
     end
     
     //OnCollision
     OnCollision Collision (.PixClk(PixCLK), .b1_on(b1_on), .b2_on(b2_on), .b3_on(b3_on),
+        .obOn(obOn), .ogOn(ogOn),.obXLOn(obXLOn),
         .CharacterOn(CharacterOn), .target(target),
         .onCollision_b1(onCollision_b1), .onCollision_b2(onCollision_b2),
-        .onCollision_b3(onCollision_b3), .state(state), .dodging(dodging));
+        .onCollision_b3(onCollision_b3), .onCollision_ob(onCollision_ob),
+        .onCollision_og(onCollision_og), .onCollision_obXL(onCollision_obXL),
+        .state(state), .dodging(dodging));
  //hp bar
     wire [7:0] red_hp, green_hp, blue_hp;
     wire [1:0] hpOn;         
     Hp Hp (.Clk(PixCLK),.x(x),.y(y),.damage(pdamage),
-        .b1_on(b1_on), .b2_on(b2_on),.b3_on(b3_on),
+        .b1_on(b1_on), .b2_on(b2_on),.b3_on(b3_on),.ogOn(ogOn), .obOn(obOn), .obXLOn(obXLOn),
         .onCollision_b1(onCollision_b1), .onCollision_b2(onCollision_b2),
-        .onCollision_b3(onCollision_b3),
+        .onCollision_b3(onCollision_b3), .onCollision_ob(onCollision_ob),
+        .onCollision_og(onCollision_og), .onCollision_obXL(onCollision_obXL),
         .target(target),.red(red_hp),.green(green_hp),
         .blue(blue_hp), .p_alive(p_alive), .e_alive(e_alive),
-        .hpOn(hpOn), .gotDamage(gotDamage), .state(state)); //show hp
+        .hpOn(hpOn), .gotDamage(gotDamage), .state(state)); 
          
     // draw on the active area of the screen
     always @ (posedge PixCLK)
@@ -143,27 +170,27 @@ module Top(
             begin
                 if (GroupnameSpriteOn==1)
                     begin
-                        RED <= (palette[(dout*3)])>>4; // RED bits(7:4) from colour palette
-                        GREEN <= (palette[(dout*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                        BLUE <= (palette[(dout*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                        RED <= (palette[(dout*3)])>>4; 
+                        GREEN <= (palette[(dout*3)+1])>>4; 
+                        BLUE <= (palette[(dout*3)+2])>>4; 
                     end
                 else if (MembersSpriteOn == 1)
                     begin
-                        RED <= (palette[(mout*3)])>>4; // RED bits(7:4) from colour palette
-                        GREEN <= (palette[(mout*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                        BLUE <= (palette[(mout*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                        RED <= (palette[(mout*3)])>>4; 
+                        GREEN <= (palette[(mout*3)+1])>>4;
+                        BLUE <= (palette[(mout*3)+2])>>4; 
                     end
                 else if (StartSpriteOn == 1)
                     begin
-                        RED <= (palette[(sout*3)])>>4; // RED bits(7:4) from colour palette
-                        GREEN <= (palette[(sout*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                        BLUE <= (palette[(sout*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                        RED <= (palette[(sout*3)])>>4; 
+                        GREEN <= (palette[(sout*3)+1])>>4; 
+                        BLUE <= (palette[(sout*3)+2])>>4; 
                     end
                 else
                     begin
-                        RED <= (palette[(COL*3)])>>4; // RED bits(7:4) from colour palette
-                        GREEN <= (palette[(COL*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                        BLUE <= (palette[(COL*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                        RED <= (palette[(COL*3)])>>4; 
+                        GREEN <= (palette[(COL*3)+1])>>4; 
+                        BLUE <= (palette[(COL*3)+2])>>4; 
                     end
             end
 //1 dodging      
@@ -199,6 +226,30 @@ module Top(
                         GREEN <= (palette[(b3Out*3)+1])>>4; 
                         BLUE <= (palette[(b3Out*3)+2])>>4; 
                     end
+                else if (ogOn == 1)
+                    begin
+                        RED <= og_red; 
+                        GREEN <= og_green; 
+                        BLUE <= og_blue; 
+                    end
+                else if (obOn == 1)
+                    begin
+                        RED <= ob_red; 
+                        GREEN <= ob_green; 
+                        BLUE <= ob_blue; 
+                    end
+                else if (obXLOn == 1)
+                    begin
+                        RED <= obXL_red; 
+                        GREEN <= obXL_green; 
+                        BLUE <= obXL_blue; 
+                    end
+                else if (ogreyOn == 1)
+                    begin
+                        RED <= ogr_red; 
+                        GREEN <= ogr_green; 
+                        BLUE <= ogr_blue; 
+                    end
                 else if (hpOn == 1)
                     begin
                         RED <= red_hp; 
@@ -207,9 +258,9 @@ module Top(
                     end
                 else
                     begin
-                        RED <= (palette[(COL*3)])>>4; // RED bits(7:4) from colour palette
-                        GREEN <= (palette[(COL*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                        BLUE <= (palette[(COL*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                        RED <= (palette[(COL*3)])>>4;
+                        GREEN <= (palette[(COL*3)+1])>>4; 
+                        BLUE <= (palette[(COL*3)+2])>>4;
                     end
             end
 //2 running bar   "space"          
@@ -217,15 +268,15 @@ module Top(
             begin
                 if (scaleOn == 1)
                     begin
-                        RED <= (palette[(scaleOut*3)])>>4; // RED bits(7:4) from colour palette
-                        GREEN <= (palette[(scaleOut*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                        BLUE <= (palette[(scaleOut*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                        RED <= (palette[(scaleOut*3)])>>4; 
+                        GREEN <= (palette[(scaleOut*3)+1])>>4;
+                        BLUE <= (palette[(scaleOut*3)+2])>>4; 
                     end
                 else if (runningOn == 1)
                     begin
-                        RED <= (palette[(runningOut*3)])>>4; // RED bits(7:4) from colour palette
-                        GREEN <= (palette[(runningOut*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                        BLUE <= (palette[(runningOut*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                        RED <= (palette[(runningOut*3)])>>4; 
+                        GREEN <= (palette[(runningOut*3)+1])>>4;
+                        BLUE <= (palette[(runningOut*3)+2])>>4; 
                     end
                 else if (hpOn == 1)
                     begin
@@ -235,22 +286,22 @@ module Top(
                     end
                 else if (TeemoOn == 1)
                     begin 
-                        RED <= (palette[(TeemoOut*3)])>>4; // RED bits(7:4) from colour palette
-                        GREEN <= (palette[(TeemoOut*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                        BLUE <= (palette[(TeemoOut*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                        RED <= (palette[(TeemoOut*3)])>>4; 
+                        GREEN <= (palette[(TeemoOut*3)+1])>>4;
+                        BLUE <= (palette[(TeemoOut*3)+2])>>4; 
                     end
                 else
                     begin
-                        RED <= (palette[(COL*3)])>>4; // RED bits(7:4) from colour palette
-                        GREEN <= (palette[(COL*3)+1])>>4; // GREEN bits(7:4) from colour palette
-                        BLUE <= (palette[(COL*3)+2])>>4; // BLUE bits(7:4) from colour palette
+                        RED <= (palette[(COL*3)])>>4; 
+                        GREEN <= (palette[(COL*3)+1])>>4; 
+                        BLUE <= (palette[(COL*3)+2])>>4; 
                     end
             end
         else
             begin
-                RED <= 0; // set RED, GREEN & BLUE
-                GREEN <= 0; // to "0" when x,y outside of
-                BLUE <= 0; // the active display area
+                RED <= 0; 
+                GREEN <= 0; 
+                BLUE <= 0; 
             end
     end
 endmodule

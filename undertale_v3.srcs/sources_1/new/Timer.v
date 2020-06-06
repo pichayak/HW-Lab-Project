@@ -33,7 +33,7 @@ module Timer(
 
     initial state = 0;
     initial dodging=0;
-    reg [26:0] counter = 0;
+    reg [27:0] counter = 0;
     
     always@(posedge PixClk)
     begin
@@ -50,13 +50,13 @@ module Timer(
         else if ((e_alive == 0 || p_alive == 0) && state != 0)
             state = 0;
         else
-        if(state == 1 &&counter <= 125000000)
+        if(state == 1 &&counter <= 250000000)
         begin
             counter=counter+1;
             dodging=0;
         end
         else
-        if(state==1 && counter>=125000000) //  5 sec pass
+        if(state==1 && counter>=250000000) //  10 sec pass
         begin
             state = 2;
             gotDamage = 1;

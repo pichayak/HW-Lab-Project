@@ -25,11 +25,17 @@ module OnCollision(
     input wire b1_on,
     input wire b2_on,
     input wire b3_on,
+    input wire obOn,
+    input wire obXLOn,
+    input wire ogOn,
     input wire CharacterOn,
     output reg target,
     output reg onCollision_b1,
     output reg onCollision_b2,
     output reg onCollision_b3,
+    output reg onCollision_ob,
+    output reg onCollision_obXL,
+    output reg onCollision_og,
     input wire state,
     input wire dodging
     );
@@ -37,6 +43,9 @@ module OnCollision(
     initial onCollision_b1 = 0;
     initial onCollision_b2 = 0;
     initial onCollision_b3 = 0;
+    initial onCollision_ob = 0;
+    initial onCollision_obXL = 0;
+    initial onCollision_og = 0;
     
     always@(posedge PixClk)
     begin
@@ -55,6 +64,21 @@ module OnCollision(
                 target <= 0;
                 onCollision_b3 <= 1;
             end
+        else if(CharacterOn == 1 && obOn ==1) //crash obstacle
+            begin
+                target <= 0;
+                onCollision_ob <= 1;
+            end
+        else if(CharacterOn == 1 && obXLOn ==1) //crash obstacle
+            begin
+                target <= 0;
+                onCollision_obXL <= 1;
+            end
+        else if(CharacterOn == 1 && ogOn ==1) //crash obstacle
+            begin
+                target <= 0;
+                onCollision_og <= 1;
+            end
         else
             begin
                 target <= 1;
@@ -65,6 +89,9 @@ module OnCollision(
                 onCollision_b1 <= 0;
                 onCollision_b2 <= 0;
                 onCollision_b3 <= 0;
+                onCollision_ob <= 0;
+                onCollision_obXL <= 0;
+                onCollision_og <= 0;
             end
     end
     

@@ -20,11 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Monster2(
-input wire clk, // 25MHz pixel clock
-    input wire [9:0] x, // current x position
-    input wire [9:0] y, // current y position
-    input wire aactive, // high during active pixel drawing
-    output reg [1:0] b2_on, // 1=on, 0=off
+input wire clk, 
+    input wire [9:0] x,
+    input wire [9:0] y,
+    input wire aactive, 
+    output reg [1:0] b2_on, 
     output wire [7:0] b2_out,
     input wire onCollision_b2,
     input wire dodging
@@ -35,12 +35,12 @@ input wire clk, // 25MHz pixel clock
       
     localparam monster_x = 420;
     localparam monster_y = 90;            
-    // setup character positions and sizes
-    reg [9:0] b2_x = 420; //character start position - X-axis
-	reg [8:0] b2_y = 90; //character start position - Y-axis
+
+    reg [9:0] b2_x = 420; 
+	reg [8:0] b2_y = 90; 
 	reg [1:0] b2_direction = 1;
-	localparam b2_width = 34; //character width in weight
-	localparam b2_height = 34; //character height in weight
+	localparam b2_width = 34; 
+	localparam b2_height = 34; 
   
     always @ (posedge clk)
     begin
