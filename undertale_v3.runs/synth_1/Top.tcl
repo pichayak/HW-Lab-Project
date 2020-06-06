@@ -56,6 +56,10 @@ read_verilog -library xil_defaultlib {
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom2.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/MonsterRom3.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/ObastacleBlueXL.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/ObstacleBlue.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/ObstacleGreen.v
+  C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/ObstacleGrey.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/OnCollision.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/PS2Receiver.v
   C:/Users/Waragon/Downloads/HW_SynLab/HW-Syn-Lab/HW-Lab-Project/undertale_v3.srcs/sources_1/new/Player.v

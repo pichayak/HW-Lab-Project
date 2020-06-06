@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Tue Jun  2 01:09:31 2020
+| Date             : Sat Jun  6 10:48:35 2020
 | Host             : Ping running 64-bit major release  (build 9200)
 | Command          : report_power -file Top_power_routed.rpt -pb Top_power_summary_routed.pb -rpx Top_power_routed.rpx
 | Design           : Top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.112        |
+| Total On-Chip Power (W)  | 0.114        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.038        |
+| Dynamic (W)              | 0.040        |
 | Device Static (W)        | 0.074        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.4         |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.007 |     3284 |       --- |             --- |
-|   LUT as Logic |     0.007 |     2132 |     20800 |           10.25 |
-|   CARRY4       |    <0.001 |      209 |      8150 |            2.56 |
-|   F7/F8 Muxes  |    <0.001 |      159 |     32600 |            0.49 |
+| Slice Logic    |     0.008 |     3671 |       --- |             --- |
+|   LUT as Logic |     0.007 |     2292 |     20800 |           11.02 |
+|   F7/F8 Muxes  |    <0.001 |      370 |     32600 |            1.13 |
+|   CARRY4       |    <0.001 |      211 |      8150 |            2.59 |
+|   Register     |    <0.001 |      363 |     41600 |            0.87 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   Register     |    <0.001 |      355 |     41600 |            0.85 |
-|   Others       |     0.000 |       83 |       --- |             --- |
-| Signals        |     0.009 |     2495 |       --- |             --- |
+|   Others       |     0.000 |       89 |       --- |             --- |
+| Signals        |     0.010 |     2446 |       --- |             --- |
 | Block RAM      |     0.003 |       50 |        50 |          100.00 |
 | DSPs           |     0.004 |        8 |        90 |            8.89 |
-| I/O            |     0.015 |       29 |       106 |           27.36 |
+| I/O            |     0.014 |       29 |       106 |           27.36 |
 | Static Power   |     0.074 |          |           |                 |
-| Total          |     0.112 |          |           |                 |
+| Total          |     0.114 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.034 |       0.023 |      0.011 |
+| Vccint    |       1.000 |     0.036 |       0.025 |      0.011 |
 | Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
 | Vcco33    |       3.300 |     0.005 |       0.004 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -144,16 +144,16 @@ Table of Contents
 +--------------------+-----------+
 | Name               | Power (W) |
 +--------------------+-----------+
-| Top                |     0.038 |
+| Top                |     0.040 |
 |   display          |     0.002 |
 |   GroupnameDisplay |     0.004 |
 |     GroupnameVRom  |     0.003 |
-|   MembersDisplay   |     0.005 |
+|   MembersDisplay   |     0.006 |
 |     MembersVRom    |     0.003 |
-|   StartDisplay     |     0.003 |
-|     StartVRom      |     0.002 |
+|   StartDisplay     |     0.004 |
+|     StartVRom      |     0.003 |
 |   Teemo            |     0.004 |
-|     TeemoRom       |     0.003 |
+|     TeemoRom       |     0.002 |
 +--------------------+-----------+
 
 
